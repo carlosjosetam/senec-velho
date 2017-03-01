@@ -1,0 +1,16 @@
+.visible {
+	visibility: visible !important;
+}
+
+.icon-action:hover {
+	color: black;
+}
+
+.error:hover {
+	color: black;
+}
+
+.maybe {
+	opacity: 0.3;
+}
+

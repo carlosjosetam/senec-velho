@@ -1,0 +1,18 @@
+.divider {
+	border-right-color: rgba(0,0,0,0.54);
+	border-right-style: solid;
+    border-right-width: 1px;
+}
+
+.visible {
+	display: initial !important;
+}
+
+.selectedTipo {
+	background-color: #e0e0e0;
+	border-radius: 8px;
+}
+
+.selectedFilter {
+	background-color: rgba(0,0,0,0.04);
+}

@@ -1,0 +1,91 @@
+@import '../../../../node_modules/@angular/material/core/theming/all-theme';
+
+@include mat-core();
+
+$primary: mat-palette($mat-yellow);
+$accent:  mat-palette($mat-light-blue);
+$warn: mat-palette($mat-green);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+@mixin atividade-card-theme($theme) {
+	// Extract whichever individual palettes you need from the theme.
+	$palestra: map-get($theme, primary);
+	$workshop: map-get($theme, accent);
+	$visita: mat-palette($mat-green);
+	$outros: mat-palette($mat-purple, A100);
+	$nulo: mat-palette($mat-grey);
+
+
+	// Use mat-color to extract individual colors from a palette as necessary.
+  	div.palestra {
+    	background-color: mat-color($palestra);
+  	}
+
+  	span.palestra {
+  		color: mat-color($palestra, A700);
+  	}
+	div.workshop {
+		background-color: mat-color($workshop);
+	}
+	span.workshop {
+		color: mat-color($workshop);
+	}
+
+	div.visita {
+		background-color: mat-color($visita);
+	}
+	span.visita {
+		color: mat-color($visita);
+	}
+
+	div.outros {
+		background-color: mat-color($outros);
+	}
+	div.nulo {
+		background-color: mat-color($nulo);
+	}
+	span.outros {
+		color: mat-color($outros);
+	}
+
+	.palestra > .mat-progress-bar-buffer {
+	background-color: mat-color($palestra,100) !important;
+	}
+
+	.palestra > .mat-progress-bar-fill::after {
+		background-color: mat-color($palestra,600) !important;	
+	}
+
+	.workshop > .mat-progress-bar-buffer {
+		background-color: mat-color($workshop,100) !important;
+	}
+
+	.workshop > .mat-progress-bar-fill::after {
+		background-color: mat-color($workshop,600) !important;	
+	}
+
+	.visita > .mat-progress-bar-buffer {
+		background-color: mat-color($visita,100) !important;
+	}
+
+	.visita > .mat-progress-bar-fill::after {
+		background-color: mat-color($visita,600) !important;	
+	}
+
+	.outros > .mat-progress-bar-buffer {
+		background-color: mat-color($outros,100) !important;
+	}
+
+	.outros > .mat-progress-bar-fill::after {
+		background-color: mat-color($outros,600) !important;	
+	}
+	.nulo > .mat-progress-bar-buffer {
+		background-color: mat-color($nulo,100) !important;
+	}
+
+	.nulo > .mat-progress-bar-fill::after {
+		background-color: mat-color($nulo,600) !important;	
+	}
+}

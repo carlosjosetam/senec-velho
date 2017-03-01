@@ -1,0 +1,40 @@
+<div *ngIf="atividade">
+	<div md-dialog-content *ngIf="isLocked()">
+		<h3 style="margin:0;margin-bottom: 16px;">
+			Abrir inscrições de "<span style="font-style: italic;">{{atividade.titulo | limitTo: 60}}</span>
+			<span *ngIf="atividade.titulo.length > 60" style="font-style: italic;">...</span>" ?
+		</h3>
+		<div *ngIf="now() < getDateTime(atividade.inicioInscricao)">
+			<span class="zmdt-body-2" style="color: rgba(0,0,0,.54)">
+				*Atenção: ao clicar em abrir, o início das inscrições será automaticamente alterado para o horário atual
+			</span>
+		</div>
+		<div *ngIf="now() > getDateTime(atividade.terminoInscricao)">
+			<h3 class="zmdt-body-2" style="margin-bottom: 0">
+				Selecione um novo prazo para as inscrições dessa atividade:
+			</h3>
+			<div fxLayout="row">
+				<div fxLayout="row" fxLayoutAlign="start center" style="margin-right: 8px;">
+					<md2-datepicker type="date" format="DD/MM/YYYY" [min]="min" [max]="max" [(ngModel)]="newDate"></md2-datepicker>
+			  	</div>
+
+			  	<div fxLayout="row" fxLayoutAlign="start center">
+			  		<md2-datepicker type="time" format="HH:mm" [(ngModel)]="newTime"></md2-datepicker>
+			  	</div>
+			</div>
+	  	</div>
+	</div>
+
+	<div md-dialog-content *ngIf="!isLocked()">
+		<h3 style="margin:0;margin-bottom: 16px;">Fechar inscrições da atividade?</h3>
+		<span class="zmdt-body-2" style="color: rgba(0,0,0,.54);">
+				*Atenção: ao clicar em fechar, o término das inscrições será automaticamente alterado para o horário atual
+		</span>
+	</div>
+
+	<div md-dialog-actions fxLayoutAlign="end end" style="margin-top: 16px;">
+	  <button tabindex="-1" color="primary" md-button  (click)="dialogRef.close({confirmation:false})">CANCELAR</button>
+	  <button tabindex="-1" color="primary" md-button *ngIf="isLocked()" (click)="dialogRef.close({confirmation:true})">ABRIR</button>
+	  <button tabindex="-1" color="primary" md-button *ngIf="!isLocked()" (click)="dialogRef.close({confirmation:true})">FECHAR</button>
+	</div>
+</div>

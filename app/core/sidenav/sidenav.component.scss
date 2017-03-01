@@ -1,0 +1,32 @@
+@import "./../../theme.scss";
+
+[md-subheader] {
+	font-family: 'Roboto';
+}
+
+.name {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.email {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.senec-avatar {
+	width:64px;
+	border-radius: 100%;
+}
+
+.active {
+	color: md-color($primary) !important;
+	background-color: rgba(0,0,0,0.04);
+	outline: none !important;
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+	.senec-avatar {
+		width: 56px;
+	}
+}

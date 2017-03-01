@@ -1,0 +1,83 @@
+<div *ngIf="loading" style="height: 100vh" fxLayoutAlign="center center">
+    <md-spinner mode="indeterminate" style="height: 64px;"></md-spinner>
+</div>
+
+
+<div *ngIf="atividades" class="zmdt-subhead-2" fxLayoutAlign="start center" style="padding-top: 24px;padding-left: 16px;width: 100%;margin: 0;">
+
+    <span fxLayoutAlign="center center" style="margin-left: 16px;"><md-icon>label_outline </md-icon></span>
+
+    <span class="palestra" [class.selectedTipo]="selectedVisible=='Palestra'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityPalestra()">
+      #palestra <span>({{getQtdPalestras()}})</span>
+    </span>
+
+    <span class="workshop" [class.selectedTipo]="selectedVisible=='Workshop'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityWorkshop()">
+      #workshop <span>({{getQtdWorkshops()}})</span>
+    </span>
+
+    <span class="visita" [class.selectedTipo]="selectedVisible=='Visita técnica'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityVisita()">
+      #visita <span>({{getQtdVisitas()}})</span>
+    </span>
+
+    <span class="outros" [class.selectedTipo]="selectedVisible=='Outros'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityOutros()">
+      #outros <span>({{getQtdOutros()}})</span>
+    </span>
+    <span fxFlex></span>
+
+    <button md-raised-button [mdMenuTriggerFor]="menu" style="margin-right: 24px;">
+      <md-icon>filter_list</md-icon>
+      <span style="margin-left: 8px;"> {{selectedFilter}}
+      <span *ngIf="selectedFilter=='Todas'">({{getTotalAtividades()}})</span>
+      <span *ngIf="selectedFilter=='Confirmadas'">({{getQtdConfirmadas()}})</span>
+      <span *ngIf="selectedFilter=='Talvez'">({{getTotalAtividades() - getQtdConfirmadas()}})</span>
+      </span>
+    </button>
+
+    <md-menu #menu="mdMenu">
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Todas'" (click)="selectedFilter='Todas'">
+        <md-icon>select_all</md-icon>
+        <span>Todas ({{getTotalAtividades()}})</span>
+      </button>
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Confirmadas'" (click)="selectedFilter='Confirmadas'">
+        <md-icon>check</md-icon>
+          <span>Confirmadas ({{getQtdConfirmadas()}})</span>
+      </button>
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Talvez'" (click)="selectedFilter='Talvez'">
+        <md-icon>help_outline</md-icon>
+        <span>Talvez ({{getTotalAtividades() - getQtdConfirmadas()}})</span>
+      </button>
+    </md-menu>
+</div>
+
+<div *ngIf="atividadesFiltradas"  fxFlexFill fxLayout="row">
+
+  <div fxLayout="row" fxFlex style="padding-top: 24px;padding-left: 16px;padding-right:16px;">
+
+    <md-nav-list dense *ngFor="let dayGroup of (atividadesFiltradas | groupByDay: 'inicioAtividade')  let last = last " [class.divider]="!last" fxFlex >
+      <div fxLayout="column" style="margin-left: 16px;">
+          <span class=".zmdt-subhead-2" fxLayoutAlign="start start">{{dayGroup.key | limitTo: 3}}</span>
+          <span class="zmdt-display-2" fxLayoutAlign="start start">{{dayGroup.value[0].inicioAtividade | date:'dd/M'}}</span>
+      </div>
+
+      <md-divider></md-divider>
+      <div *ngFor="let timeGroup  of ( dayGroup.value | groupBy: 'inicioAtividade')"> 
+        <div *ngFor="let atividade of timeGroup.value;">
+          <div *ngIf="(selectedVisible == 'none' || selectedVisible == atividade.tipo) && matchFilter(atividade)">
+            <h3 md-subheader>{{atividade.inicioAtividade | date: 'shortTime'}}</h3>
+            <div  (click)="gotoDetail(atividade)">
+              <atividade-card [atividade]="atividade"></atividade-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-nav-list>
+  </div>
+
+</div>
+
+<div *ngIf="!loading && atividadesFiltradas.length == 0" fxFlex fxLayoutAlign="center center">
+    <div  fxLayout="column">
+      <md-icon style="font-size: 64px;margin-top: 200px;">sentiment_very_dissatisfied</md-icon>
+      <span class="zmdt-title">Desculpe, nenhuma atividade foi encontrada</span>
+    </div>
+</div>
