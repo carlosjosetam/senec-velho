@@ -1,30 +1,32 @@
-<div *ngIf="loading" style="height: 100vh" fxLayoutAlign="center center">
-    <md-spinner mode="indeterminate" style="height: 64px;"></md-spinner>
+<!-- spinner loader -->
+<div class="spinner" *ngIf="loading" fxLayoutAlign="center center">
+    <md-spinner mode="indeterminate"></md-spinner>
 </div>
 
+<!-- atividades-tools (labels and filters) -->
+<div class="atividades-tools zmdt-subhead-2" *ngIf="atividades" fxLayoutAlign="start center">
 
-<div *ngIf="atividades" class="zmdt-subhead-2" fxLayoutAlign="start center" style="padding-top: 24px;padding-left: 16px;width: 100%;margin: 0;">
+    <div fxLayoutAlign="center center"><md-icon>label_outline </md-icon></div>
 
-    <span fxLayoutAlign="center center" style="margin-left: 16px;"><md-icon>label_outline </md-icon></span>
-
-    <span class="palestra" [class.selectedTipo]="selectedVisible=='Palestra'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityPalestra()">
+    <div class="palestra" [class.selectedTipo]="selectedVisible=='Palestra'" (click)="toggleVisibilityPalestra()">
       #palestra <span>({{getQtdPalestras()}})</span>
-    </span>
+    </div>
 
-    <span class="workshop" [class.selectedTipo]="selectedVisible=='Workshop'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityWorkshop()">
+    <div class="workshop" [class.selectedTipo]="selectedVisible=='Workshop'" (click)="toggleVisibilityWorkshop()">
       #workshop <span>({{getQtdWorkshops()}})</span>
-    </span>
+    </div>
 
-    <span class="visita" [class.selectedTipo]="selectedVisible=='Visita técnica'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityVisita()">
+    <div class="visita" [class.selectedTipo]="selectedVisible=='Visita técnica'" (click)="toggleVisibilityVisita()">
       #visita <span>({{getQtdVisitas()}})</span>
-    </span>
+    </div>
 
-    <span class="outros" [class.selectedTipo]="selectedVisible=='Outros'" style="cursor:pointer;margin-left: 8px;margin-right: 8px;padding:8px;" (click)="toggleVisibilityOutros()">
+    <div class="outros" [class.selectedTipo]="selectedVisible=='Outros'" (click)="toggleVisibilityOutros()">
       #outros <span>({{getQtdOutros()}})</span>
-    </span>
+    </div>
+
     <span fxFlex></span>
 
-    <button md-raised-button [mdMenuTriggerFor]="menu" style="margin-right: 24px;">
+    <button class="filter-button" md-raised-button [mdMenuTriggerFor]="menu">
       <md-icon>filter_list</md-icon>
       <span style="margin-left: 8px;"> {{selectedFilter}}
       <span *ngIf="selectedFilter=='Todas'">({{getTotalAtividades()}})</span>
@@ -47,11 +49,11 @@
         <span>Talvez ({{getTotalAtividades() - getQtdConfirmadas()}})</span>
       </button>
     </md-menu>
+
 </div>
 
-<div *ngIf="atividadesFiltradas"  fxFlexFill fxLayout="row">
-
-  <div fxLayout="row" fxFlex style="padding-top: 24px;padding-left: 16px;padding-right:16px;">
+<!-- atividades-grid -->
+<div class="atividades-grid" *ngIf="atividadesFiltradas"  fxFlexFill fxLayout="row" >
 
     <md-nav-list dense *ngFor="let dayGroup of (atividadesFiltradas | groupByDay: 'inicioAtividade')  let last = last " [class.divider]="!last" fxFlex >
       <div fxLayout="column" style="margin-left: 16px;">
@@ -71,13 +73,11 @@
         </div>
       </div>
     </md-nav-list>
-  </div>
 
 </div>
 
-<div *ngIf="!loading && atividadesFiltradas.length == 0" fxFlex fxLayoutAlign="center center">
-    <div  fxLayout="column">
-      <md-icon style="font-size: 64px;margin-top: 200px;">sentiment_very_dissatisfied</md-icon>
+<!-- not-found search -->
+<div class="not-found" *ngIf="!loading && atividadesFiltradas.length == 0" fxFlex fxLayoutAlign="center center">
+      <md-icon>sentiment_very_dissatisfied</md-icon>
       <span class="zmdt-title">Desculpe, nenhuma atividade foi encontrada</span>
-    </div>
 </div>

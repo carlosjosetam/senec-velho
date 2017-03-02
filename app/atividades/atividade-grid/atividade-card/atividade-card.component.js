@@ -30,9 +30,9 @@ let AtividadeCardComponent = class AtividadeCardComponent {
             "Visita técnica": "visita",
             "Outros": "outros"
         };
-        if (!colorMap[this.atividade.tipo])
-            return 'nulo';
-        return colorMap[this.atividade.tipo];
+        if (colorMap[this.atividade.tipo])
+            return colorMap[this.atividade.tipo];
+        return null;
     }
     setOver(value) {
         this.over = value;
