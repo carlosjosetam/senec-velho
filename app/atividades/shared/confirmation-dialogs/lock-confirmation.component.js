@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const material_1 = require('@angular/material');
-const atividade_model_1 = require('../../../shared/atividade.model');
+const atividade_model_1 = require('../atividade.model');
 let LockConfirmationComponent = class LockConfirmationComponent {
     constructor(dialogRef) {
         this.dialogRef = dialogRef;

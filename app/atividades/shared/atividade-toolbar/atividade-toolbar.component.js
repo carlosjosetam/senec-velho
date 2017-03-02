@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const sidenav_service_1 = require('../../core/sidenav/sidenav.service');
-const media_state_service_1 = require('../../core/media-state.service');
+const sidenav_service_1 = require('../../../core/sidenav/sidenav.service');
+const media_state_service_1 = require('../../../core/media-state.service');
 let AtividadeToolbarComponent = class AtividadeToolbarComponent {
     constructor(sidenavService, mediaState) {
         this.sidenavService = sidenavService;

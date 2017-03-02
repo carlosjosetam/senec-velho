@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Atividade } from '../../shared/atividade.model';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { VisibilityConfirmationComponent } from './confirmation-dialogs/visibility-confirmation.component';
-import { LockConfirmationComponent } from './confirmation-dialogs/lock-confirmation.component';
+import { VisibilityConfirmationComponent } from '../confirmation-dialogs/visibility-confirmation.component';
+import { LockConfirmationComponent } from '../confirmation-dialogs/lock-confirmation.component';
 import { MdSnackBar } from '@angular/material';
 import { AtividadeService } from '../../shared/atividade.service';
 

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Atividade } from '../shared/atividade.model';
 import { AtividadeService } from '../shared/atividade.service';
 import { Subscription } from 'rxjs/Subscription';
-import { AtividadeCardComponent } from './atividade-card/atividade-card.component';
+import { AtividadeCardComponent } from '../shared/atividade-card/atividade-card.component';
 import { SearchInputService } from '../../shared/search-input/search-input.service';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { Atividade } from '../../../shared/atividade.model';
+import { Atividade } from '../atividade.model';
 
 @Component({
   moduleId: module.id,
