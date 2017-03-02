@@ -2,32 +2,26 @@
 
 @include mat-core();
 
-$primary: mat-palette($mat-yellow);
-$accent:  mat-palette($mat-light-blue);
-$warn: mat-palette($mat-green);
-$theme: mat-light-theme($primary, $accent, $warn);
-
-@include angular-material-theme($theme);
-
-@mixin atividade-card-theme($theme) {
+@mixin atividade-card-theme() {
 	// Extract whichever individual palettes you need from the theme.
-	$palestra: map-get($theme, primary);
-	$workshop: map-get($theme, accent);
-	$visita: mat-palette($mat-green);
-	$outros: mat-palette($mat-purple, A100);
-	$nulo: mat-palette($mat-grey);
+	$palestra: mat-palette($mat-blue);
+	$workshop: mat-palette($mat-teal);
+	$visita: mat-palette($mat-brown);
+	$outros: mat-palette($mat-deep-orange);
 
 
 	// Use mat-color to extract individual colors from a palette as necessary.
   	div.palestra {
     	background-color: mat-color($palestra);
+    	color: map-get($palestra,default-contrast);
   	}
 
   	span.palestra {
-  		color: mat-color($palestra, A700);
+  		color: mat-color($palestra);
   	}
 	div.workshop {
 		background-color: mat-color($workshop);
+		color: map-get($workshop,default-contrast);
 	}
 	span.workshop {
 		color: mat-color($workshop);
@@ -35,6 +29,7 @@ $theme: mat-light-theme($primary, $accent, $warn);
 
 	div.visita {
 		background-color: mat-color($visita);
+		color: map-get($visita,default-contrast);
 	}
 	span.visita {
 		color: mat-color($visita);
@@ -42,9 +37,7 @@ $theme: mat-light-theme($primary, $accent, $warn);
 
 	div.outros {
 		background-color: mat-color($outros);
-	}
-	div.nulo {
-		background-color: mat-color($nulo);
+		color: map-get($outros,default-contrast);
 	}
 	span.outros {
 		color: mat-color($outros);
@@ -81,11 +74,11 @@ $theme: mat-light-theme($primary, $accent, $warn);
 	.outros > .mat-progress-bar-fill::after {
 		background-color: mat-color($outros,600) !important;	
 	}
-	.nulo > .mat-progress-bar-buffer {
-		background-color: mat-color($nulo,100) !important;
-	}
 
-	.nulo > .mat-progress-bar-fill::after {
-		background-color: mat-color($nulo,600) !important;	
+	.quick-actions md-icon {
+		color: map-get($palestra, default-contrast);
+	}
+	.notifications md-icon {
+		color: map-get($palestra, default-contrast);	
 	}
 }

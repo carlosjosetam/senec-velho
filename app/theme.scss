@@ -21,5 +21,5 @@ $senec-theme: mat-light-theme($primary, $accent);
 }
 
 @include angular-material-theme($senec-theme);
-@include atividade-card-theme($theme);
+@include atividade-card-theme();
 @include search-input-theme($senec-theme);

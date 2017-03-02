@@ -53,7 +53,6 @@ let AppComponent = class AppComponent {
             }
         });
     }
-    ;
 };
 AppComponent = __decorate([
     core_1.Component({

@@ -45,7 +45,8 @@ let AtividadeGridComponent = class AtividadeGridComponent {
         this.getAtividades();
     }
     ngOnDestroy() {
-        this.searchSubscription.unsubscribe();
+        if (this.searchSubscription)
+            this.searchSubscription.unsubscribe();
     }
     add(titulo) {
         titulo = titulo.trim();
