@@ -9,10 +9,10 @@ import { InMemoryDataService }  from './shared/in-memory-data.service';
 import { AtividadesComponent } from './atividades.component';
 import { AtividadeGridComponent} from './atividade-grid/atividade-grid.component';
 import { AtividadeDetailComponent } from './atividade-detail/atividade-detail.component';
-import { AtividadeToolbarComponent } from './atividade-toolbar/atividade-toolbar.component';
-import { AtividadeCardComponent } from './atividade-grid/atividade-card/atividade-card.component';
-import { VisibilityConfirmationComponent } from './atividade-grid/atividade-card/confirmation-dialogs/visibility-confirmation.component';
-import { LockConfirmationComponent } from './atividade-grid/atividade-card/confirmation-dialogs/lock-confirmation.component';
+import { AtividadeToolbarComponent } from './shared/atividade-toolbar/atividade-toolbar.component';
+import { AtividadeCardComponent } from './shared/atividade-card/atividade-card.component';
+import { VisibilityConfirmationComponent } from './shared/confirmation-dialogs/visibility-confirmation.component';
+import { LockConfirmationComponent } from './shared/confirmation-dialogs/lock-confirmation.component';
 
 import { AtividadeService } from './shared/atividade.service';
 

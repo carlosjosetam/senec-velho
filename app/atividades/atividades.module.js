@@ -18,10 +18,10 @@ const in_memory_data_service_1 = require('./shared/in-memory-data.service');
 const atividades_component_1 = require('./atividades.component');
 const atividade_grid_component_1 = require('./atividade-grid/atividade-grid.component');
 const atividade_detail_component_1 = require('./atividade-detail/atividade-detail.component');
-const atividade_toolbar_component_1 = require('./atividade-toolbar/atividade-toolbar.component');
-const atividade_card_component_1 = require('./atividade-grid/atividade-card/atividade-card.component');
-const visibility_confirmation_component_1 = require('./atividade-grid/atividade-card/confirmation-dialogs/visibility-confirmation.component');
-const lock_confirmation_component_1 = require('./atividade-grid/atividade-card/confirmation-dialogs/lock-confirmation.component');
+const atividade_toolbar_component_1 = require('./shared/atividade-toolbar/atividade-toolbar.component');
+const atividade_card_component_1 = require('./shared/atividade-card/atividade-card.component');
+const visibility_confirmation_component_1 = require('./shared/confirmation-dialogs/visibility-confirmation.component');
+const lock_confirmation_component_1 = require('./shared/confirmation-dialogs/lock-confirmation.component');
 const atividade_service_1 = require('./shared/atividade.service');
 let AtividadesModule = class AtividadesModule {
 };
