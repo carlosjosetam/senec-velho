@@ -5,9 +5,8 @@ import { MediaChange, ObservableMediaService } from "@angular/flex-layout";
 import { MediaStateService } from './core/media-state.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'senec-app',
-  templateUrl: 'app.component.html',
+  templateUrl: './app.component.html',
   styleUrls: ['app.component.css'],
 })
 
