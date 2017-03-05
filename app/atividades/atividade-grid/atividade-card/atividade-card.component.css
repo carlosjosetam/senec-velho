@@ -1,16 +1,1 @@
-.visible {
-	visibility: visible !important;
-}
-
-.icon-action:hover {
-	color: black;
-}
-
-.error:hover {
-	color: black;
-}
-
-.maybe {
-	opacity: 0.3;
-}
-
+.visible{visibility:visible !important}.card-container{position:relative;height:146px;margin:8px;padding:8px;border-radius:4px;cursor:default}md-progress-bar{position:absolute;top:0;left:0;right:0}.notifications-bar{height:24px}.notifications-bar md-icon{font-size:20px;margin-left:8px}.quick-actions{visibility:hidden;padding:8px}.quick-actions md-icon{cursor:pointer;margin-right:16px;font-size:20px}.atividade-title{padding:8px}

@@ -57,7 +57,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy() {
-    this.searchSubscription.unsubscribe();
+    if (this.searchSubscription) this.searchSubscription.unsubscribe();
   }
   
   add(titulo: string): void {

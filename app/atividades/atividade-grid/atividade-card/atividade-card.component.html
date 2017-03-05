@@ -1,48 +1,41 @@
-<div style="position: relative;">
+<div class="card-container" (mouseenter)="setOver(true)" (mouseleave)="setOver(false)" [class.mat-elevation-z8]="over" [ngClass]="getCardColor()" fxLayout="column">
 
-  <span style="color:rgba(0,0,0,0.54);cursor:default;position: absolute;top: 8px;right: 16px;z-index: 100" *ngIf="!atividade.confirmed" (mouseenter)="setOver(true)" (mouseleave)="setOver(false)">
-        <md-icon mdTooltip="Atividade não confirmada" mdTooltipPosition="above" fxLayoutAlign="center center" style="font-size: 20px;margin-left: 8px;">help</md-icon>
-  </span>
+  <md-progress-bar *ngIf="loading" [ngClass]="getCardColor()" mode="indeterminate"></md-progress-bar>
 
-  <div style="position:relative;height: 136px;margin: 8px;padding:8px; border-radius: 4px;cursor: default" (mouseenter)="setOver(true)" (mouseleave)="setOver(false)" [class.mat-elevation-z8]="over" [ngClass]="getCardColor()" [class.maybe] = "!atividade.confirmed && !over"  fxLayout="column">
+  <div class="notifications-bar">
+    <div fxLayout="row"  fxLayoutAlign="end end">
 
-  <md-progress-bar *ngIf="loading" [ngClass]="getCardColor()" mode="indeterminate" style="position: absolute;top:0;left: 0;right: 0;"></md-progress-bar>
+      <md-icon *ngIf="!atividade.confirmed" mdTooltip="Atividade não confirmada" mdTooltipPosition="above" fxLayoutAlign="center center">help</md-icon>
 
-    <div style="height: 24px;">
-      <div fxLayout="row" *ngIf="atividade.confirmed" fxLayoutAlign="end end">
-        
-        <span style="color:rgba(0,0,0,0.54);margin-left: 8px;" *ngIf="hasDepencies()">
-        	<md-icon mdTooltip="Atividade com pendências" mdTooltipPosition="above" fxLayoutAlign="center center" style="font-size: 20px;">error_outline</md-icon>
-        </span>
-        <span style="color:rgba(0,0,0,0.54);margin-left: 8px;" *ngIf="atividade.vagas < 0">
-          <md-icon mdTooltip="Vagas esgotadas" mdTooltipPosition="above" fxLayoutAlign="center center" style="font-size: 20px;">event_busy</md-icon>
-        </span>
-      </div>
+    	<md-icon *ngIf="atividade.confirmed && hasDepencies()" mdTooltip="Atividade com pendências" mdTooltipPosition="above" fxLayoutAlign="center center">error_outline</md-icon>
+
+      <md-icon *ngIf="atividade.confirmed && atividade.vagas < 0" mdTooltip="Vagas esgotadas" mdTooltipPosition="above" fxLayoutAlign="center center">event_busy</md-icon>
+
     </div>
+  </div>
 
-    <div style="padding:  8px;">
-      <span style="display: inline-block;display: -webkit-box;-webkit-line-clamp: 2;overflow:hidden;-webkit-box-orient: vertical;">{{atividade.titulo}}</span>
-    </div>
-    
+  <div class="atividade-title">
+    <span class="lead" style="display: inline-block;display: -webkit-box;-webkit-line-clamp: 2;overflow:hidden;-webkit-box-orient: vertical;">{{atividade.titulo}}</span>
+  </div>
+  
 
-    <span fxFlex></span>
+  <span fxFlex></span>
 
-    <span *ngIf="atividade.confirmed" [class.visible]="over && !loading" style="visibility: hidden;color:rgba(0,0,0,0.54);padding: 8px;" fxLayoutAlign="start end">
+  <div class="quick-actions" *ngIf="atividade.confirmed" [class.visible]="over && !loading" fxLayoutAlign="start end">
 
-      <md-icon *ngIf="isLocked()" fxLayoutAlign="center center" class="icon-action" style="font-size: 20px;cursor: pointer;margin-right: 16px;" mdTooltip="Fechada" (click)="$event.stopPropagation();openLockConfirmation()">lock</md-icon>
+    <md-icon *ngIf="isLocked()" fxLayoutAlign="center center" class="icon-action" mdTooltip="Fechada" (click)="$event.stopPropagation();openLockConfirmation()">lock</md-icon>
 
-      <md-icon *ngIf="!isLocked() == true" fxLayoutAlign="center center" class="icon-action" style="font-size: 20px;cursor: pointer;margin-right: 16px;" mdTooltip="Aberta" (click)="$event.stopPropagation();openLockConfirmation()">lock_open</md-icon>
+    <md-icon *ngIf="!isLocked() == true" fxLayoutAlign="center center" class="icon-action" mdTooltip="Aberta" (click)="$event.stopPropagation();openLockConfirmation()">lock_open</md-icon>
 
-      <md-icon *ngIf="atividade.visivel == true" fxLayoutAlign="center center" class="icon-action" style="font-size: 20px;cursor: pointer;margin-right: 16px;" mdTooltip="Visível" 
-      (click)="$event.stopPropagation();openVisibilityConfirmation()">visibility</md-icon>
+    <md-icon *ngIf="atividade.visivel == true" fxLayoutAlign="center center" class="icon-action" mdTooltip="Visível" 
+    (click)="$event.stopPropagation();openVisibilityConfirmation()">visibility</md-icon>
 
-      <md-icon *ngIf="!atividade.visivel" (click)="$event.stopPropagation();openVisibilityConfirmation()" fxLayoutAlign="center center" class="icon-action" style="font-size: 20px;cursor: pointer;margin-right: 16px;" mdTooltip="Invisível">visibility_off</md-icon>
-
-    </span>
-    
-    <span *ngIf="!atividade.confirmed && !loading" [class.visible]="over" style="visibility: hidden;color:rgba(0,0,0,0.54);padding: 8px;opacity: 1;" fxLayoutAlign="start end">
-      <md-icon *ngIf="!atividade.confirmed" (click)="$event.stopPropagation();confirm()" fxLayoutAlign="center center" class="icon-action" style="font-size: 20px;cursor: pointer;margin-right: 16px;" mdTooltip="Confirmar">check</md-icon>
-    </span>
+    <md-icon *ngIf="!atividade.visivel" (click)="$event.stopPropagation();openVisibilityConfirmation()" fxLayoutAlign="center center" class="icon-action" mdTooltip="Invisível">visibility_off</md-icon>
 
   </div>
+  
+  <div class="quick-actions" *ngIf="!atividade.confirmed && !loading" [class.visible]="over" fxLayoutAlign="start end">
+    <md-icon *ngIf="!atividade.confirmed" (click)="$event.stopPropagation();confirm()" fxLayoutAlign="center center" class="icon-action" mdTooltip="Confirmar">check</md-icon>
+  </div>
+
 </div>

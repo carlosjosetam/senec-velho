@@ -1,6 +1,8 @@
 @import './../node_modules/@angular/material/core/theming/all-theme';
-@import './atividades/atividade-grid/atividade-card/_atividade-card-theme.scss';
-@import './shared/search-input/_search-input-theme.scss';
+
+@import './atividades/atividade-grid/atividade-card/atividade-card.component.scss';
+@import './atividades/atividade-grid/atividade-grid.component.scss';
+@import './shared/search-input/search-input.component.scss';
 
 @include mat-core();
 
@@ -21,5 +23,6 @@ $senec-theme: mat-light-theme($primary, $accent);
 }
 
 @include angular-material-theme($senec-theme);
-@include atividade-card-theme($theme);
-@include search-input-theme($senec-theme);
+@include atividade-card();
+@include atividade-week();
+@include search-input($senec-theme);

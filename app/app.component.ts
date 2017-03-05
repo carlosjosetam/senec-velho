@@ -53,7 +53,6 @@ export class AppComponent implements OnInit, OnDestroy{
         this.mode = "side";
         this.mediaState.changeState("lg");
         this.sidenavService.changeState(true);
-        }
       }
 	      
     });
