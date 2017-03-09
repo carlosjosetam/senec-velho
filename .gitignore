@@ -4,4 +4,5 @@ dist
 *.js
 *.js.map
 senec-app.sublime-project
+senec-app.sublime-workspace
 !systemjs.config.js
