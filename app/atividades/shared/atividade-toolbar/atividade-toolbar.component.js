@@ -8,36 +8,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const sidenav_service_1 = require('../../../core/sidenav/sidenav.service');
-const media_state_service_1 = require('../../../core/media-state.service');
-let AtividadeToolbarComponent = class AtividadeToolbarComponent {
-    constructor(sidenavService, mediaState) {
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var sidenav_service_1 = require("../../../core/sidenav/sidenav.service");
+var media_state_service_1 = require("../../../core/media-state.service");
+var AtividadeToolbarComponent = (function () {
+    function AtividadeToolbarComponent(sidenavService, mediaState) {
         this.sidenavService = sidenavService;
         this.mediaState = mediaState;
         this.isSearchOpen = false;
         this.state = "";
     }
-    ngOnInit() {
-        this.mediaSubscription = this.mediaState.state$.subscribe(state => {
-            this.state = state;
+    AtividadeToolbarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.mediaSubscription = this.mediaState.state$.subscribe(function (state) {
+            _this.state = state;
         });
-    }
-    ngOnDestroy() {
+    };
+    AtividadeToolbarComponent.prototype.ngOnDestroy = function () {
         this.mediaSubscription.unsubscribe();
-    }
-    setIsSearchOpen(value) {
+    };
+    AtividadeToolbarComponent.prototype.setIsSearchOpen = function (value) {
         this.isSearchOpen = value;
-    }
-};
+    };
+    return AtividadeToolbarComponent;
+}());
 AtividadeToolbarComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'atividade-toolbar',
         templateUrl: 'atividade-toolbar.component.html',
         styleUrls: ['atividade-toolbar.component.css'],
-    }), 
-    __metadata('design:paramtypes', [sidenav_service_1.SidenavService, media_state_service_1.MediaStateService])
+    }),
+    __metadata("design:paramtypes", [sidenav_service_1.SidenavService, media_state_service_1.MediaStateService])
 ], AtividadeToolbarComponent);
 exports.AtividadeToolbarComponent = AtividadeToolbarComponent;
 //# sourceMappingURL=atividade-toolbar.component.js.map

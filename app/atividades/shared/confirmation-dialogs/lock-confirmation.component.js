@@ -8,43 +8,45 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const material_1 = require('@angular/material');
-const atividade_model_1 = require('../atividade.model');
-let LockConfirmationComponent = class LockConfirmationComponent {
-    constructor(dialogRef) {
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var material_1 = require("@angular/material");
+var atividade_model_1 = require("../atividade.model");
+var LockConfirmationComponent = (function () {
+    function LockConfirmationComponent(dialogRef) {
         this.dialogRef = dialogRef;
     }
-    ngOnInit() {
+    LockConfirmationComponent.prototype.ngOnInit = function () {
         this.newDate = new Date(this.atividade.inicioAtividade);
         this.newTime = new Date(this.atividade.inicioAtividade);
         this.min = new Date();
         this.max = new Date(this.atividade.inicioAtividade);
-    }
-    isLocked() {
-        let inicio = new Date(this.atividade.inicioInscricao);
-        let fim = new Date(this.atividade.terminoInscricao);
-        let now = new Date();
+    };
+    LockConfirmationComponent.prototype.isLocked = function () {
+        var inicio = new Date(this.atividade.inicioInscricao);
+        var fim = new Date(this.atividade.terminoInscricao);
+        var now = new Date();
         return !((inicio.getTime() <= now.getTime()) && (now.getTime() <= fim.getTime()));
-    }
-    now() {
+    };
+    LockConfirmationComponent.prototype.now = function () {
         return new Date();
-    }
-    getDateTime(dateTime) {
+    };
+    LockConfirmationComponent.prototype.getDateTime = function (dateTime) {
         return new Date(dateTime);
-    }
-};
+    };
+    return LockConfirmationComponent;
+}());
 __decorate([
-    core_1.Input(), 
-    __metadata('design:type', atividade_model_1.Atividade)
+    core_1.Input(),
+    __metadata("design:type", atividade_model_1.Atividade)
 ], LockConfirmationComponent.prototype, "atividade", void 0);
 LockConfirmationComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'lock-confirmation',
         templateUrl: 'lock-confirmation.component.html'
-    }), 
-    __metadata('design:paramtypes', [material_1.MdDialogRef])
+    }),
+    __metadata("design:paramtypes", [material_1.MdDialogRef])
 ], LockConfirmationComponent);
 exports.LockConfirmationComponent = LockConfirmationComponent;
 //# sourceMappingURL=lock-confirmation.component.js.map

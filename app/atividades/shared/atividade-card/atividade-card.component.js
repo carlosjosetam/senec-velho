@@ -8,23 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const atividade_model_1 = require('../../shared/atividade.model');
-const material_1 = require('@angular/material');
-const visibility_confirmation_component_1 = require('../confirmation-dialogs/visibility-confirmation.component');
-const lock_confirmation_component_1 = require('../confirmation-dialogs/lock-confirmation.component');
-const material_2 = require('@angular/material');
-const atividade_service_1 = require('../../shared/atividade.service');
-let AtividadeCardComponent = class AtividadeCardComponent {
-    constructor(dialog, snackBar, atividadeService) {
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var atividade_model_1 = require("../../shared/atividade.model");
+var material_1 = require("@angular/material");
+var visibility_confirmation_component_1 = require("../confirmation-dialogs/visibility-confirmation.component");
+var lock_confirmation_component_1 = require("../confirmation-dialogs/lock-confirmation.component");
+var material_2 = require("@angular/material");
+var atividade_service_1 = require("../../shared/atividade.service");
+var AtividadeCardComponent = (function () {
+    function AtividadeCardComponent(dialog, snackBar, atividadeService) {
         this.dialog = dialog;
         this.snackBar = snackBar;
         this.atividadeService = atividadeService;
         this.over = false;
         this.loading = false;
     }
-    getCardColor() {
-        const colorMap = {
+    AtividadeCardComponent.prototype.getCardColor = function () {
+        var colorMap = {
             "Palestra": "palestra",
             "Workshop": "workshop",
             "Visita técnica": "visita",
@@ -33,62 +34,64 @@ let AtividadeCardComponent = class AtividadeCardComponent {
         if (colorMap[this.atividade.tipo])
             return colorMap[this.atividade.tipo];
         return null;
-    }
-    setOver(value) {
+    };
+    AtividadeCardComponent.prototype.setOver = function (value) {
         this.over = value;
-    }
-    isLocked() {
-        let inicio = new Date(this.atividade.inicioInscricao);
-        let fim = new Date(this.atividade.terminoInscricao);
-        let now = new Date();
+    };
+    AtividadeCardComponent.prototype.isLocked = function () {
+        var inicio = new Date(this.atividade.inicioInscricao);
+        var fim = new Date(this.atividade.terminoInscricao);
+        var now = new Date();
         return !((inicio.getTime() <= now.getTime()) && (now.getTime() <= fim.getTime()));
-    }
-    openVisibilityConfirmation() {
-        let dialogRef = this.dialog.open(visibility_confirmation_component_1.VisibilityConfirmationComponent);
+    };
+    AtividadeCardComponent.prototype.openVisibilityConfirmation = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(visibility_confirmation_component_1.VisibilityConfirmationComponent);
         dialogRef.componentInstance.atividade = this.atividade;
-        dialogRef.afterClosed().subscribe(result => {
+        dialogRef.afterClosed().subscribe(function (result) {
             if (result === true)
-                this.toggleVisibility();
+                _this.toggleVisibility();
         });
-    }
-    openLockConfirmation() {
-        let dialogRef = this.dialog.open(lock_confirmation_component_1.LockConfirmationComponent);
+    };
+    AtividadeCardComponent.prototype.openLockConfirmation = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(lock_confirmation_component_1.LockConfirmationComponent);
         dialogRef.componentInstance.atividade = this.atividade;
-        dialogRef.afterClosed().subscribe(result => {
+        dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
                 if (result.confirmation)
-                    this.toggleLocked(dialogRef.componentInstance.newDate, dialogRef.componentInstance.newTime);
+                    _this.toggleLocked(dialogRef.componentInstance.newDate, dialogRef.componentInstance.newTime);
             }
         });
-    }
-    toggleVisibility() {
-        let value = !this.atividade.visivel;
-        let msg = `A atividade "${this.atividade.titulo.substr(0, 60)}`;
+    };
+    AtividadeCardComponent.prototype.toggleVisibility = function () {
+        var value = !this.atividade.visivel;
+        var msg = "A atividade \"" + this.atividade.titulo.substr(0, 60);
         if (this.atividade.titulo.length > 60)
             msg = msg + "...";
         if (value) {
-            this.handleChange('visivel', value, msg + `" agora está visível.`);
+            this.handleChange('visivel', value, msg + "\" agora est\u00E1 vis\u00EDvel.");
         }
         else {
-            this.handleChange('visivel', value, msg + `" agora está invisível.`);
+            this.handleChange('visivel', value, msg + "\" agora est\u00E1 invis\u00EDvel.");
         }
-    }
-    toggleLocked(newTerminoDate, newTerminoTime) {
-        let now = new Date();
-        let value;
-        let msg;
+    };
+    AtividadeCardComponent.prototype.toggleLocked = function (newTerminoDate, newTerminoTime) {
+        var now = new Date();
+        var value;
+        var msg;
         if (this.isLocked()) {
-            msg = `Você abriu as inscrições da atividade "${this.atividade.titulo.substr(0, 60)}`;
+            msg = "Voc\u00EA abriu as inscri\u00E7\u00F5es da atividade \"" + this.atividade.titulo.substr(0, 60);
             if (this.atividade.titulo.length > 60)
-                msg = msg + `..."`;
+                msg = msg + "...\"";
             else
-                msg = msg + `"`;
+                msg = msg + "\"";
             if (now < new Date(this.atividade.inicioInscricao)) {
                 value = now;
                 this.handleChange("inicioInscricao", value, msg);
             }
             else {
-                let termino = new Date(newTerminoDate);
+                var termino = new Date(newTerminoDate);
                 termino.setHours(newTerminoTime.getHours());
                 termino.setMinutes(newTerminoTime.getMinutes());
                 value = termino;
@@ -97,47 +100,48 @@ let AtividadeCardComponent = class AtividadeCardComponent {
         }
         else {
             value = now;
-            msg = `Você fechou as inscrições da atividade "${this.atividade.titulo.substr(0, 60)}`;
+            msg = "Voc\u00EA fechou as inscri\u00E7\u00F5es da atividade \"" + this.atividade.titulo.substr(0, 60);
             if (this.atividade.titulo.length > 60)
-                msg = msg + `..."`;
+                msg = msg + "...\"";
             else
-                msg = msg + `"`;
+                msg = msg + "\"";
             this.handleChange("terminoInscricao", value, msg);
         }
-    }
-    confirm() {
-        let msg = `Você confirmou a atividade "${this.atividade.titulo.substr(0, 60)}`;
+    };
+    AtividadeCardComponent.prototype.confirm = function () {
+        var msg = "Voc\u00EA confirmou a atividade \"" + this.atividade.titulo.substr(0, 60);
         if (this.atividade.titulo.length > 60)
-            msg = msg + `..."`;
-        let value = true;
+            msg = msg + "...\"";
+        var value = true;
         this.handleChange("confirmed", value, msg);
-    }
-    handleChange(property, value, msg) {
+    };
+    AtividadeCardComponent.prototype.handleChange = function (property, value, msg) {
+        var _this = this;
         this.loading = true;
-        let oldValue = this.atividade[property];
-        let newAtividade = new atividade_model_1.Atividade(this.atividade);
+        var oldValue = this.atividade[property];
+        var newAtividade = new atividade_model_1.Atividade(this.atividade);
         newAtividade[property] = value;
         this.atividadeService
             .update(newAtividade)
-            .then(() => {
-            this.loading = false;
-            this.atividade[property] = value;
+            .then(function () {
+            _this.loading = false;
+            _this.atividade[property] = value;
         })
-            .then(() => {
-            let snackBarRef = this.snackBar.open(msg, 'Desfazer', { duration: 4000, extraClasses: ['snackbar'] });
-            snackBarRef.onAction().subscribe(() => {
-                this.loading = true;
+            .then(function () {
+            var snackBarRef = _this.snackBar.open(msg, 'Desfazer', { duration: 4000, extraClasses: ['snackbar'] });
+            snackBarRef.onAction().subscribe(function () {
+                _this.loading = true;
                 newAtividade[property] = oldValue;
-                this.atividadeService
+                _this.atividadeService
                     .update(newAtividade)
-                    .then(() => {
-                    this.loading = false;
-                    this.atividade[property] = oldValue;
+                    .then(function () {
+                    _this.loading = false;
+                    _this.atividade[property] = oldValue;
                 });
             });
         });
-    }
-    hasDepencies() {
+    };
+    AtividadeCardComponent.prototype.hasDepencies = function () {
         for (var property in this.atividade) {
             if (this.atividade.hasOwnProperty(property)) {
                 if (!this.atividade[property].toString().length)
@@ -145,11 +149,12 @@ let AtividadeCardComponent = class AtividadeCardComponent {
             }
         }
         return false;
-    }
-};
+    };
+    return AtividadeCardComponent;
+}());
 __decorate([
-    core_1.Input(), 
-    __metadata('design:type', atividade_model_1.Atividade)
+    core_1.Input(),
+    __metadata("design:type", atividade_model_1.Atividade)
 ], AtividadeCardComponent.prototype, "atividade", void 0);
 AtividadeCardComponent = __decorate([
     core_1.Component({
@@ -157,8 +162,8 @@ AtividadeCardComponent = __decorate([
         selector: 'atividade-card',
         templateUrl: 'atividade-card.component.html',
         styleUrls: ['atividade-card.component.css']
-    }), 
-    __metadata('design:paramtypes', [material_1.MdDialog, material_2.MdSnackBar, atividade_service_1.AtividadeService])
+    }),
+    __metadata("design:paramtypes", [material_1.MdDialog, material_2.MdSnackBar, atividade_service_1.AtividadeService])
 ], AtividadeCardComponent);
 exports.AtividadeCardComponent = AtividadeCardComponent;
 //# sourceMappingURL=atividade-card.component.js.map
