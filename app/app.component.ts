@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { SidenavService } from './core/sidenav/sidenav.service';
 import { Subscription } from "rxjs/Subscription";
-import { MediaChange, ObservableMediaService } from "@angular/flex-layout";
+import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { MediaStateService } from './core/media-state.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, OnDestroy{
   private mode = "";
   private sidenavSubscription: Subscription;
 
-  constructor(@Inject(ObservableMediaService)  private _media$: any, private sidenavService: SidenavService, private mediaState: MediaStateService) { }
+  constructor(@Inject(ObservableMedia)  private _media$: any, private sidenavService: SidenavService, private mediaState: MediaStateService) { }
 
   ngOnInit() {
     this._watcher = this.watchMQChanges();

@@ -523,17 +523,7 @@
 			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 36,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".sublime-project.json",
-			"settings":
-			{
-				"buffer_size": 249,
-				"encoding": "UTF-8",
+				"buffer_size": 189,
 				"line_ending": "Unix"
 			}
 		}
@@ -545,10 +535,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 92.0,
-		"last_filter": "proj",
+		"height": 292.0,
+		"last_filter": "save",
 		"selected_items":
 		[
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"proje",
+				"Project: Save As"
+			],
 			[
 				"proj",
 				"Project: Save As"
@@ -562,7 +560,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 423.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -582,22 +580,28 @@
 	},
 	"expanded_folders":
 	[
-		"/home/lucas/senec-app",
-		"/home/lucas/senec-app/app",
-		"/home/lucas/senec-app/app/core/sidenav",
-		"/home/lucas/senec-app/dist",
-		"/home/lucas/senec-app/dist/app/atividades",
-		"/home/lucas/senec-app/dist/app/atividades/atividade-detail"
+		"/home/lucas/senec-app/app"
 	],
 	"file_history":
 	[
+		"/home/lucas/senec-app/app/app.component.ts",
+		"/home/lucas/senec-app/app/atividades/atividades.module.ts",
+		"/home/lucas/senec-app/senec-app.sublime-project",
+		"/home/lucas/senec/package.json",
+		"/home/lucas/senec-app/non-essential-files.txt",
+		"/home/lucas/senec-app/.gitignore",
+		"/home/lucas/senec-app/index.html",
+		"/home/lucas/senec-app/app/core/sidenav/sidenav.component.html",
+		"/home/lucas/senec-app/tsconfig.json",
+		"/home/lucas/senec-app/package.json",
+		"/home/lucas/senec-app/e2e/app.e2e-spec.js",
+		"/home/lucas/senec-app/.sublime-project.json",
 		"/home/lucas/senec-app/.sublime-project",
 		"/home/lucas/template-angular/server.ts",
 		"/home/lucas/template-angular/app/app.router.ts",
 		"/home/lucas/template-angular/app/public/presentation/home/home.html",
 		"/home/lucas/template-angular/package.json",
 		"/home/lucas/template-angular/webpack.config.js",
-		"/home/lucas/senec-app/app/atividades/atividades.module.ts",
 		"/home/lucas/senec-app/app/atividades/shared/atividade-toolbar/atividade-toolbar.component.ts",
 		"/home/lucas/senec-app/app/atividades/shared/confirmation-dialogs/lock-confirmation.component.ts",
 		"/home/lucas/senec-app/app/atividades/shared/confirmation-dialogs/visibility-confirmation.component.ts",
@@ -618,10 +622,7 @@
 		"/home/lucas/senec-app/styles.css",
 		"/home/lucas/senec-app/app/atividades/shared/atividade.model.ts",
 		"/home/lucas/senec-app/app/atividades/atividades.component.html",
-		"/home/lucas/senec-app/app/app.component.ts",
 		"/home/lucas/senec-app/app/theme.css",
-		"/home/lucas/senec-app/app/core/sidenav/sidenav.component.html",
-		"/home/lucas/senec-app/package.json",
 		"/home/lucas/senec-app/app/shared/search-input/search-input.component.html",
 		"/home/lucas/senec-app/app/atividades/atividade-grid/atividade-card/confirmation-dialogs/lock-confirmation.component.html",
 		"/home/lucas/senec-app/app/atividades/atividade-grid/atividade-card/confirmation-dialogs/visibility-confirmation.component.html",
@@ -662,7 +663,6 @@
 		"/home/lucas/senec-app/app/shared/orderBy.pipe.ts",
 		"/home/lucas/senec-app/app/core/sidenav/sidenav.component.ts",
 		"/home/lucas/senec-app/app/core/sidenav/sidenav.component.scss",
-		"/home/lucas/senec-app/index.html",
 		"/home/lucas/senec-app/app/shared/limitTo.pipe.ts",
 		"/home/lucas/senec-app/app/shared/groupBy.pipe.ts",
 		"/home/lucas/senec-app/app/shared/groupByDay.pipe.ts",
@@ -694,7 +694,6 @@
 		"/home/lucas/senec-app/app/core/app-drawer/app-drawer.component.ts",
 		"/home/lucas/senec-app/app/core/toolbar/toolbar.component.ts",
 		"/home/lucas/senec-app/app/core/toolbar/toolbar.component.html",
-		"/home/lucas/senec-app/tsconfig.json",
 		"/home/lucas/senec-app/node_modules/@angular/material/LICENSE",
 		"/home/lucas/senec-app/app/core/toolbar/toolbar.component.css",
 		"/home/lucas/senec-app/app/thumbs.svg",
@@ -712,13 +711,7 @@
 		"/home/lucas/senec-app/main.ts",
 		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/match-media.ts",
 		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/media-monitor.ts",
-		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/observable-media-service.ts",
-		"/home/lucas/senec-app/npm-debug.log",
-		"/home/lucas/senec-app/app/bs-config.js",
-		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/providers/break-points-provider.d.ts",
-		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/providers/observable-media-service-provider.d.ts",
-		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/_module.d.ts",
-		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/observable-media-service.d.ts"
+		"/home/lucas/senec-app/node_modules/@angular/flex-layout/media-query/observable-media-service.ts"
 	],
 	"find":
 	{
@@ -741,6 +734,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"senec-logo",
+			"pattern.png",
 			"join",
 			"types",
 			"css",
@@ -866,9 +861,7 @@
 			"search",
 			"primary",
 			"margin",
-			"h5",
-			"\"><",
-			"place"
+			"h5"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -893,7 +886,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -902,50 +895,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36,
+						"buffer_size": 189,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								36,
-								36
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": ".sublime-project.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 249,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								175,
-								175
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1018,6 +981,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/senec-app/senec-app.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -1038,7 +1005,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 254.0,
+	"side_bar_width": 341.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

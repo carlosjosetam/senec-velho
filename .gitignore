@@ -1,4 +1,7 @@
 node_modules
+dist
+*.log
 *.js
-!webpack.config.js
+*.js.map
 senec-app.sublime-project
+!systemjs.config.js
