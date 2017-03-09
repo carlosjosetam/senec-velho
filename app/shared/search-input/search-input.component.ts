@@ -4,6 +4,7 @@ import {SearchInputService} from './search-input.service';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 @Component({
+	moduleId: module.id,
 	selector: 'search-input',
 	templateUrl: './search-input.component.html',
 	animations: [
