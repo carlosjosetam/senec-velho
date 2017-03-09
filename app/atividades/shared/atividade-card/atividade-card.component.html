@@ -21,21 +21,21 @@
 
   <span fxFlex></span>
 
-  <div class="quick-actions" *ngIf="atividade.confirmed" [class.visible]="over && !loading" fxLayoutAlign="start end">
+  <div class="quick-actions" *ngIf="atividade.confirmed" [class.visible]="over && !loading" fxLayout="row" fxLayoutAlign="start end">
+    
+    <md-icon *ngIf="isLocked()" class="icon-action" mdTooltip="Fechada" (click)="$event.stopPropagation();openLockConfirmation()">lock</md-icon>
 
-    <md-icon *ngIf="isLocked()" fxLayoutAlign="center center" class="icon-action" mdTooltip="Fechada" (click)="$event.stopPropagation();openLockConfirmation()">lock</md-icon>
+    <md-icon *ngIf="!isLocked() == true" class="icon-action" mdTooltip="Aberta" (click)="$event.stopPropagation();openLockConfirmation()">lock_open</md-icon>
 
-    <md-icon *ngIf="!isLocked() == true" fxLayoutAlign="center center" class="icon-action" mdTooltip="Aberta" (click)="$event.stopPropagation();openLockConfirmation()">lock_open</md-icon>
-
-    <md-icon *ngIf="atividade.visivel == true" fxLayoutAlign="center center" class="icon-action" mdTooltip="Visível" 
+    <md-icon *ngIf="atividade.visivel == true" class="icon-action" mdTooltip="Visível"
     (click)="$event.stopPropagation();openVisibilityConfirmation()">visibility</md-icon>
 
-    <md-icon *ngIf="!atividade.visivel" (click)="$event.stopPropagation();openVisibilityConfirmation()" fxLayoutAlign="center center" class="icon-action" mdTooltip="Invisível">visibility_off</md-icon>
+    <md-icon *ngIf="!atividade.visivel" (click)="$event.stopPropagation();openVisibilityConfirmation()" class="icon-action" mdTooltip="Invisível">visibility_off</md-icon>
 
   </div>
   
   <div class="quick-actions" *ngIf="!atividade.confirmed && !loading" [class.visible]="over" fxLayoutAlign="start end">
-    <md-icon *ngIf="!atividade.confirmed" (click)="$event.stopPropagation();confirm()" fxLayoutAlign="center center" class="icon-action" mdTooltip="Confirmar">check</md-icon>
+    <md-icon *ngIf="!atividade.confirmed" (click)="$event.stopPropagation();confirm()" class="icon-action" mdTooltip="Confirmar">check</md-icon>
   </div>
 
 </div>
