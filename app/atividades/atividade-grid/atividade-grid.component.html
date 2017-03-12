@@ -55,7 +55,7 @@
 <!-- atividades-grid -->
 <div class="atividades-grid" *ngIf="atividadesFiltradas"  fxFlexFill fxLayout="row" >
 
-    <md-nav-list dense *ngFor="let dayGroup of (atividadesFiltradas | groupByDay: 'inicioAtividade')  let last = last " [class.divider]="!last" fxFlex >
+    <md-nav-list *ngFor="let dayGroup of (atividadesFiltradas | groupByDay: 'inicioAtividade')  let last = last " [class.divider]="!last" fxFlex >
       <div fxLayout="column" style="margin-left: 16px;">
           <span class=".zmdt-subhead-2" fxLayoutAlign="start start">{{dayGroup.key | limitTo: 3}}</span>
           <span class="zmdt-display-2" fxLayoutAlign="start start">{{dayGroup.value[0].inicioAtividade | date:'dd/M'}}</span>
@@ -78,6 +78,6 @@
 
 <!-- not-found search -->
 <div class="not-found" *ngIf="!loading && atividadesFiltradas.length == 0" fxFlex fxLayoutAlign="center center">
-      <md-icon>sentiment_very_dissatisfied</md-icon>
-      <span class="zmdt-title">Desculpe, nenhuma atividade foi encontrada</span>
+      <md-icon style="margin-right: 16px;">sentiment_very_dissatisfied</md-icon>
+      <span class="zmdt-title">Desculpe, nenhuma atividade foi encontrada.</span>
 </div>
