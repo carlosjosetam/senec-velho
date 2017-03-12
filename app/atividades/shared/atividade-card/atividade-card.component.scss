@@ -57,7 +57,7 @@
 		background-color: mat-color($outros,600) !important;	
 	} 
 
-	.quick-actions md-icon, md-icon:hover  {
+	.quick-actions md-icon, .quick-actions md-icon:hover  {
 		color: map-get($palestra, default-contrast) !important;
 	}
 

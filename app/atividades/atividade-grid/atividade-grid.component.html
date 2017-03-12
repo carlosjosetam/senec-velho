@@ -6,7 +6,7 @@
 <!-- atividades-tools (labels and filters) -->
 <div class="atividades-tools zmdt-subhead-2" *ngIf="atividades" fxLayoutAlign="start center">
 
-    <div fxLayoutAlign="center center"><md-icon>label_outline </md-icon></div>
+    <div fxLayoutAlign="center center" class="label-icon-tipos"><md-icon>label_outline </md-icon></div>
 
     <div class="palestra" [class.selectedTipo]="selectedVisible=='Palestra'" (click)="toggleVisibilityPalestra()">
       #palestra <span>({{getQtdPalestras()}})</span>
