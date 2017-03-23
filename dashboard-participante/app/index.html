@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard | Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+
+    <link href="app/theme.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,500,500italic|Roboto+Mono:400,300,300italic,400italic,500,500italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="app/assets/style/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app/main').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body style="margin: 0px;height: 100vh;">
+    <senec-app>Loading...</senec-app>
+  </body>
+
+</html>

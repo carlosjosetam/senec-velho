@@ -1,0 +1,83 @@
+<!-- spinner loader -->
+<div class="spinner" *ngIf="loading" fxLayoutAlign="center center">
+    <md-spinner mode="indeterminate"></md-spinner>
+</div>
+
+<!-- atividades-tools (labels and filters) -->
+<div class="atividades-tools zmdt-subhead-2" *ngIf="atividades" fxLayoutAlign="start center">
+
+    <div fxLayoutAlign="center center" class="label-icon-tipos"><md-icon>label_outline </md-icon></div>
+
+    <div class="palestra" [class.selectedTipo]="selectedVisible=='Palestra'" (click)="toggleVisibilityPalestra()">
+      #palestra <span>({{getQtdPalestras()}})</span>
+    </div>
+
+    <div class="workshop" [class.selectedTipo]="selectedVisible=='Workshop'" (click)="toggleVisibilityWorkshop()">
+      #workshop <span>({{getQtdWorkshops()}})</span>
+    </div>
+
+    <div class="visita" [class.selectedTipo]="selectedVisible=='Visita técnica'" (click)="toggleVisibilityVisita()">
+      #visita <span>({{getQtdVisitas()}})</span>
+    </div>
+
+    <div class="outros" [class.selectedTipo]="selectedVisible=='Outros'" (click)="toggleVisibilityOutros()">
+      #outros <span>({{getQtdOutros()}})</span>
+    </div>
+
+    <span fxFlex></span>
+
+    <button class="filter-button" md-raised-button [mdMenuTriggerFor]="menu">
+      <md-icon>filter_list</md-icon>
+      <span style="margin-left: 8px;"> {{selectedFilter}}
+      <span *ngIf="selectedFilter=='Todas'">({{getTotalAtividades()}})</span>
+      <span *ngIf="selectedFilter=='Confirmadas'">({{getQtdConfirmadas()}})</span>
+      <span *ngIf="selectedFilter=='Talvez'">({{getTotalAtividades() - getQtdConfirmadas()}})</span>
+      </span>
+    </button>
+
+    <md-menu #menu="mdMenu">
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Todas'" (click)="selectedFilter='Todas'">
+        <md-icon>select_all</md-icon>
+        <span>Todas ({{getTotalAtividades()}})</span>
+      </button>
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Confirmadas'" (click)="selectedFilter='Confirmadas'">
+        <md-icon>check</md-icon>
+          <span>Confirmadas ({{getQtdConfirmadas()}})</span>
+      </button>
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Talvez'" (click)="selectedFilter='Talvez'">
+        <md-icon>help_outline</md-icon>
+        <span>Talvez ({{getTotalAtividades() - getQtdConfirmadas()}})</span>
+      </button>
+    </md-menu>
+
+</div>
+
+<!-- atividades-grid -->
+<div class="atividades-grid" *ngIf="atividadesFiltradas"  fxFlexFill fxLayout="row" >
+
+    <md-nav-list *ngFor="let dayGroup of (atividadesFiltradas | groupByDay: 'inicioAtividade')  let last = last " [class.divider]="!last" fxFlex >
+      <div fxLayout="column" style="margin-left: 16px;">
+          <span class=".zmdt-subhead-2" fxLayoutAlign="start start">{{dayGroup.key | limitTo: 3}}</span>
+          <span class="zmdt-display-2" fxLayoutAlign="start start">{{dayGroup.value[0].inicioAtividade | date:'dd/M'}}</span>
+      </div>
+
+      <md-divider></md-divider>
+      <div *ngFor="let timeGroup  of ( dayGroup.value | groupBy: 'inicioAtividade')"> 
+        <div *ngFor="let atividade of timeGroup.value;">
+          <div *ngIf="(selectedVisible == 'none' || selectedVisible == atividade.tipo) && matchFilter(atividade)">
+            <h3 md-subheader>{{atividade.inicioAtividade | date: 'shortTime'}}</h3>
+            <div  (click)="gotoDetail(atividade)">
+              <atividade-card [atividade]="atividade"></atividade-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-nav-list>
+
+</div>
+
+<!-- not-found search -->
+<div class="not-found" *ngIf="!loading && atividadesFiltradas.length == 0" fxFlex fxLayoutAlign="center center">
+      <md-icon style="margin-right: 16px;">sentiment_very_dissatisfied</md-icon>
+      <span class="zmdt-title">Desculpe, nenhuma atividade foi encontrada.</span>
+</div>

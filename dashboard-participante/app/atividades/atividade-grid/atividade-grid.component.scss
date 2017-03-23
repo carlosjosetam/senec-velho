@@ -1,0 +1,80 @@
+@import '../../../node_modules/@angular/material/core/theming/all-theme';
+
+@mixin atividade-week() {
+
+	$palestra: mat-palette($mat-blue);
+	$workshop: mat-palette($mat-teal);
+	$visita: mat-palette($mat-brown);
+	$outros: mat-palette($mat-deep-orange);
+
+	.atividades-tools .palestra {
+  		color: mat-color($palestra);
+  	}
+
+	.atividades-tools .workshop {
+		color: mat-color($workshop);
+	}
+
+	.atividades-tools .visita {
+		color: mat-color($visita);
+	}
+
+	.atividades-tools .outros {
+		color: mat-color($outros);
+	}
+
+}
+
+.label-icon-tipos {
+	cursor: default;
+}
+
+.divider {
+	border-right-color: rgba(0,0,0,0.54);
+	border-right-style: solid;
+    border-right-width: 1px;
+}
+
+.visible {
+	display: initial !important;
+}
+
+.selectedTipo {
+	background-color: #e0e0e0;
+	border-radius: 8px;
+}
+
+.selectedFilter {
+	background-color: rgba(0,0,0,0.04);
+}
+
+.spinner {
+	height: 100vh;
+}
+
+md-spinner {
+	height: 64px;
+}
+
+.atividades-tools {
+	padding-top: 24px;padding-left: 32px;width: 100%;margin: 0;
+}
+
+.atividades-tools .palestra, .workshop, .visita, .outros {
+	cursor:pointer;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding:8px;
+}
+
+.filter-button {
+	margin-right: 24px;
+}
+
+.atividades-grid {
+	padding-top: 24px;padding-left: 16px;padding-right:16px;
+}
+
+.not-found {
+	margin-top: 200px;
+}
