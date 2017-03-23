@@ -2,8 +2,12 @@ dashboard-admin/node_modules
 dashboard-participante/node_modules
 dist
 *.log
-*.js
-*.js.map
+dashboard-admin/*.js
+dashboard-admin/*.js.map
+dashboard-admin/*.js.spec
+dashboard-participante/*.js
+dashboard-participante/*.js.map
+dashboard-participante/*.js.spec
 senec-app.sublime-project
 senec-app.sublime-workspace
 !dashboard-admin/systemjs.config.js
