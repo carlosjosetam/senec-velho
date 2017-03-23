@@ -1,0 +1,18 @@
+<div fxLayoutAlign="end center">
+	<button md-icon-button (click)="toggleSearchInput(true)" style="margin-right: 4px;">
+		<md-icon>search</md-icon>
+	</button>
+
+	<div fxLayoutAlign="center center" [@myAnimation]="search" *ngIf="search == true" >
+		<div class="zmdt-subhead-2" style="margin-top: 4px;margin-bottom: 4px;height: 48px;" fxLayoutAlign="center center" >
+
+	  		<input #searchInput (keyup)="searchUpdate(searchInput.value)" [class.mat-primary]="color != 'accent' && color != 'warn'" [class.mat-accent]="color == 'accent'" [class.mat-warn]="color == 'warn'" [style.width]="safeWidth" placeholder="{{placeholderText}}"/>
+
+		</div>
+		<button md-icon-button  (click)="toggleSearchInput(false);focused = false;searchUpdate('');">
+			<md-icon >close</md-icon>
+		</button>
+
+	</div>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="card-container" (mouseenter)="setOver(true)" (mouseleave)="setOver(false)" [class.mat-elevation-z8]="over" [ngClass]="getCardColor()" fxLayout="column">
+
+  <md-progress-bar *ngIf="loading" [ngClass]="getCardColor()" mode="indeterminate"></md-progress-bar>
+
+  <div class="notifications-bar">
+    <div fxLayout="row"  fxLayoutAlign="end end">
+
+      <md-icon *ngIf="!atividade.confirmed" mdTooltip="Atividade não confirmada" mdTooltipPosition="above" fxLayoutAlign="center center">help</md-icon>
+
+    	<md-icon *ngIf="atividade.confirmed && hasDepencies()" mdTooltip="Atividade com pendências" mdTooltipPosition="above" fxLayoutAlign="center center">error_outline</md-icon>
+
+      <md-icon *ngIf="atividade.confirmed && atividade.vagas < 0" mdTooltip="Vagas esgotadas" mdTooltipPosition="above" fxLayoutAlign="center center">event_busy</md-icon>
+
+    </div>
+  </div>
+
+  <div class="atividade-title">
+    <span class="lead" style="display: inline-block;display: -webkit-box;-webkit-line-clamp: 2;overflow:hidden;-webkit-box-orient: vertical;">{{atividade.titulo}}</span>
+  </div>
+  
+
+  <span fxFlex></span>
+
+  <div class="quick-actions" *ngIf="atividade.confirmed" [class.visible]="over && !loading" fxLayout="row" fxLayoutAlign="start end">
+    
+    <md-icon *ngIf="isLocked()" class="icon-action" mdTooltip="Fechada" (click)="$event.stopPropagation();openLockConfirmation()">lock</md-icon>
+
+    <md-icon *ngIf="!isLocked() == true" class="icon-action" mdTooltip="Aberta" (click)="$event.stopPropagation();openLockConfirmation()">lock_open</md-icon>
+
+    <md-icon *ngIf="atividade.visivel == true" class="icon-action" mdTooltip="Visível"
+    (click)="$event.stopPropagation();openVisibilityConfirmation()">visibility</md-icon>
+
+    <md-icon *ngIf="!atividade.visivel" (click)="$event.stopPropagation();openVisibilityConfirmation()" class="icon-action" mdTooltip="Invisível">visibility_off</md-icon>
+
+  </div>
+  
+  <div class="quick-actions" *ngIf="!atividade.confirmed && !loading" [class.visible]="over" fxLayoutAlign="start end">
+    <md-icon *ngIf="!atividade.confirmed" (click)="$event.stopPropagation();confirm()" class="icon-action" mdTooltip="Confirmar">check</md-icon>
+  </div>
+
+</div>

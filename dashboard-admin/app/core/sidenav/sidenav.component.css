@@ -34,5 +34,5 @@
 md-toolbar {
 	height:135px;
 	padding-top: 12px;
-	background-image: url('assets/img/pattern.png') !important;
+	background-image: url('app/assets/img/pattern.png') !important;
 }

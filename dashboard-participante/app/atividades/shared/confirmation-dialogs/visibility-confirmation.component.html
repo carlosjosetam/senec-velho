@@ -1,0 +1,11 @@
+<div md-dialog-content *ngIf="atividade">
+	<h3 style="margin:0;margin-bottom: 16px;">Alterar status de "<span style="font-size: italic;">{{atividade.titulo | limitTo: 60}}</span><span *ngIf="atividade.titulo.length > 60" style="font-style: italic;">...</span>" para <span *ngIf="atividade.visivel">in</span>visível?
+	</h3>
+	<span class="zmdt-body-2" style="color: rgba(0,0,0,.54)">
+		*Atenção: ao clicar em alterar, a atividade se tornará <span *ngIf="atividade.visivel">in</span>visível para todos os participantes
+	</span>
+</div>
+<div md-dialog-actions fxLayoutAlign="end end" style="margin-top: 16px;">
+  <button tabindex="-1" color="primary" md-button  (click)="dialogRef.close(false)">CANCELAR</button>
+  <button tabindex="-1" color="primary" md-button (click)="dialogRef.close(true)">ALTERAR</button>
+</div>

@@ -1,0 +1,115 @@
+@mixin atividade-card() {
+
+	$palestra: mat-palette($mat-blue);
+	$workshop: mat-palette($mat-teal);
+	$visita: mat-palette($mat-brown);
+	$outros: mat-palette($mat-deep-orange);
+
+  	.card-container.palestra {
+    	background-color: mat-color($palestra);
+    	color: map-get($palestra,default-contrast);
+  	}
+
+	.card-container.workshop {
+		background-color: mat-color($workshop);
+		color: map-get($workshop,default-contrast);
+	}
+
+	.card-container.visita {
+		background-color: mat-color($visita);
+		color: map-get($visita,default-contrast);
+	}
+	
+	.card-container.outros {
+		background-color: mat-color($outros);
+		color: map-get($outros,default-contrast);
+	}
+
+	.card-container.palestra .mat-progress-bar-buffer {
+		background-color: mat-color($palestra,100) !important;
+	}
+
+	.card-container.palestra .mat-progress-bar-fill::after {
+		background-color: mat-color($palestra,600) !important;	
+	}
+
+	.card-container.workshop .mat-progress-bar-buffer {
+		background-color: mat-color($workshop,100) !important;
+	}
+
+	.card-container.workshop .mat-progress-bar-fill::after {
+		background-color: mat-color($workshop,600) !important;	
+	}
+
+	.card-container.visita .mat-progress-bar-buffer {
+		background-color: mat-color($visita,100) !important;
+	}
+
+	.card-container.visita .mat-progress-bar-fill::after {
+		background-color: mat-color($visita,600) !important;	
+	}
+
+	.card-container.outros .mat-progress-bar-buffer {
+		background-color: mat-color($outros,100) !important;
+	}
+
+	.card-container.outros .mat-progress-bar-fill::after {
+		background-color: mat-color($outros,600) !important;	
+	} 
+
+	.quick-actions md-icon, .quick-actions md-icon:hover  {
+		color: map-get($palestra, default-contrast) !important;
+	}
+
+	.notifications md-icon {
+		color: map-get($palestra, default-contrast) !important;	
+	}
+}
+
+.visible {
+	visibility: visible !important;
+}
+
+.card-container {
+	position: relative;
+	height: 146px;
+	margin: 8px;
+	padding:8px; 
+	border-radius: 4px;
+	cursor: default;
+}
+
+md-progress-bar {
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.notifications-bar {
+	height: 24px;
+}
+
+.notifications-bar md-icon{
+	font-size: 20px;
+	margin-left: 8px;	
+}
+
+.quick-actions {
+	height: 48px;
+	visibility: hidden;
+	padding: 8px;
+}
+
+.quick-actions md-icon {
+	cursor: pointer;
+	margin-right: 16px;
+	font-size: 20px;
+
+}
+
+.atividade-title {
+	padding:  8px;
+}

@@ -1,0 +1,15 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+
+	<button *ngIf="!sidenavService.sidenavOpened" (click)="sidenavService.changeState(true)" md-icon-button>
+		<md-icon>menu</md-icon>
+	</button>
+
+	<span *ngIf="!isSearchOpen || state != 'xs'" style="padding-left: 16px;">Atividades</span>
+	
+	<span fxFlex></span>
+
+	<search-input *ngIf="state != 'xs'" [placeholderText]="'pesquise um título'" (onToggleOpened)="setIsSearchOpen($event)" [color]="'primary'" [width]="'360px'"></search-input>
+
+	<search-input *ngIf="state == 'xs'" [placeholderText]="'pesquise um título'" (onToggleOpened)="setIsSearchOpen($event)" [color]="'primary'" [width]="'240px'"></search-input>
+
+</md-toolbar> 
