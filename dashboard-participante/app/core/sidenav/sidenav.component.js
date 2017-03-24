@@ -10,10 +10,10 @@ var core_1 = require("@angular/core");
 var SidenavComponent = (function () {
     function SidenavComponent() {
         this.menuItems = [
-            { 'descricao': 'Cronograma', 'link': 'atividades', 'icon': 'dashboard', 'category': '' },
-            { 'descricao': 'Minha SEnEC', 'link': 'minha-senec', 'icon': 'perm_contact_calendar', 'category': '' },
-            { 'descricao': 'Meu Perfil', 'link': 'perfil', 'icon': 'people', 'category': 'Conta' },
-            { 'descricao': 'Segurança', 'link': 'seguranca', 'icon': 'security', 'category': 'Conta' },
+            { 'descricao': 'Cronograma', 'link': 'atividades', 'icon': 'dashboard', 'category': '', 'disabled': false },
+            { 'descricao': 'Minha SEnEC', 'link': 'minha-senec', 'icon': 'perm_contact_calendar', 'category': '', 'disabled': true },
+            { 'descricao': 'Meu Perfil', 'link': 'perfil', 'icon': 'people', 'category': 'Conta', 'disabled': true },
+            { 'descricao': 'Segurança', 'link': 'seguranca', 'icon': 'security', 'category': 'Conta', 'disabled': true },
         ];
     }
     return SidenavComponent;
