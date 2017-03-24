@@ -9,9 +9,8 @@
 	margin-bottom: 4px;
 }
 
-.email {
+.pontos {
 	font-size: 14px;
-	font-weight: 400;
 }
 
 .senec-avatar {
@@ -41,5 +40,8 @@ md-toolbar {
 	pointer-events: none;
 	color: #000000;
     opacity: 0.38;
+}
+
+.disabled:hover {
 
 }
