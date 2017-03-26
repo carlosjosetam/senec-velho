@@ -1,1 +1,0 @@
-{"version":3,"file":"snackbar-notification.component.js","sourceRoot":"","sources":["snackbar-notification.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,uBAA0B,eAAe,CAAC,CAAA;AAQ1C;AACA,CAAC;AAPD;IAAC,gBAAS,CAAC;QACV,QAAQ,EAAE,MAAM,CAAC,EAAE;QACnB,QAAQ,EAAC,iCAAiC;QAC1C,WAAW,EAAE,sCAAsC;QACnD,SAAS,EAAC,CAAC,WAAW,EAAC,8BAA8B,CAAC;KACtD,CAAC;;iCAAA;AACW,qCAA6B,gCACzC,CAAA"}
