@@ -9,9 +9,8 @@
 	margin-bottom: 4px;
 }
 
-.email {
+.pontos {
 	font-size: 14px;
-	font-weight: 400;
 }
 
 .senec-avatar {
@@ -35,4 +34,14 @@ md-toolbar {
 	height:135px;
 	padding-top: 12px;
 	background-image: url('app/assets/img/pattern.png') !important;
+}
+
+.disabled {
+	pointer-events: none;
+	color: #000000;
+    opacity: 0.38;
+}
+
+.disabled:hover {
+
 }
