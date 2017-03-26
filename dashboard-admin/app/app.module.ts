@@ -7,16 +7,27 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AtividadesModule } from './atividades/atividades.module';
 import { PalestrantesModule } from './palestrantes/palestrantes.module';
-
+import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
 
 import { PageNotFoundComponent } from './not-found.component';
+import { AuthGuard } from './auth-guard.service';
+import { AngularFireService } from './providers/angularfire.service';
 import { AppComponent } from './app.component';
 import { LOCALE_ID } from '@angular/core';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCXPcDPKSlZRJXI-K8dSjuoAof-HjyIAM0',
+  authDomain: 'senec-app.firebaseapp.com',
+  databaseURL: 'https://senec-app.firebaseio.com',
+  storageBucket: 'senec-app.appspot.com',
+  messagingSenderId: '1062894931468'
+};
 
 @NgModule({
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
     CoreModule,
@@ -29,8 +40,8 @@ import { LOCALE_ID } from '@angular/core';
     PageNotFoundComponent,
     AppComponent
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }],
+  providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }, AuthGuard, AngularFireService],
   bootstrap: [ AppComponent ]
 })
-export class AppModule { 
+export class AppModule {
 }

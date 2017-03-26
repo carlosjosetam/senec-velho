@@ -11,24 +11,24 @@ import { AtividadeToolbarComponent } from './shared/atividade-toolbar/atividade-
 import { AtividadeCardComponent } from './shared/atividade-card/atividade-card.component';
 import { VisibilityConfirmationComponent } from './shared/confirmation-dialogs/visibility-confirmation.component';
 import { LockConfirmationComponent } from './shared/confirmation-dialogs/lock-confirmation.component';
-
 import { AtividadeService } from './shared/atividade.service';
+import { AuthGuard } from '../auth-guard.service';
 
 @NgModule({
 
-	imports: [ 
+	imports: [
  	HttpModule,
 	InMemoryWebApiModule.forRoot(InMemoryDataService),
     SharedModule,
     AtividadesRoutingModule,
     ],
 
-	declarations: [ 
+	declarations: [
 		AtividadesComponent, AtividadeDetailComponent, AtividadeGridComponent, AtividadeToolbarComponent,
 		AtividadeCardComponent, VisibilityConfirmationComponent, LockConfirmationComponent
 	],
 	entryComponents: [VisibilityConfirmationComponent, LockConfirmationComponent],
-	providers: [ AtividadeService ],
+	providers: [ AtividadeService, AuthGuard ],
 
 })
 
