@@ -1,7 +1,13 @@
 /dashboard-admin/node_modules
 /dashboard-participante/node_modules
+
 *.log
 *.js
 *.js.map
 *.spec.ts
 *.spec
+
+!dashboard-admin/bs-config.js
+!dashboard-admin/systemjs.config.js
+!dashboard-participante/bs-config.js
+!dashboard-participante/systemjs.config.js
