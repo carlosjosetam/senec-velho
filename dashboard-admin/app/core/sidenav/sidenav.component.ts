@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireService } from '../../providers/angularfire.service';
 
 @Component ({
 	moduleId: module.id,
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['sidenav.component.css'],
 })
 
-export class SidenavComponent { 
+export class SidenavComponent {
 
+	constructor(public angularFire: AngularFireService) {	}
 	menuItems = [
 		{'descricao': 'Atividades', 'link': 'atividades', 'icon': 'dashboard', 'category':''},
 		{'descricao': 'Participantes', 'link': 'participantes', 'icon': 'school','category':''},

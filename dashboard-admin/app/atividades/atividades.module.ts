@@ -19,9 +19,9 @@ import { AuthGuard } from '../auth-guard.service';
 	imports: [
  	HttpModule,
 	InMemoryWebApiModule.forRoot(InMemoryDataService),
-    SharedModule,
-    AtividadesRoutingModule,
-    ],
+  SharedModule,
+  AtividadesRoutingModule,
+  ],
 
 	declarations: [
 		AtividadesComponent, AtividadeDetailComponent, AtividadeGridComponent, AtividadeToolbarComponent,

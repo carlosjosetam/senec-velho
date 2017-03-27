@@ -5,6 +5,10 @@ import { AuthGuard }             from './auth-guard.service';
 
 export const routes: Routes = [
   {
+    path:'login',
+    redirectTo: 'login'
+  },
+  {
     path: '',
     canActivate: [AuthGuard],
     redirectTo: 'atividades',

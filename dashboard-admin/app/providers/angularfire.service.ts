@@ -1,9 +1,18 @@
-import { Injectable } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { Injectable, OnInit, Inject } from '@angular/core';
+import { AngularFire, FirebaseAuthState, AuthMethods, AuthProviders } from 'angularfire2';
 
 @Injectable()
 export class AngularFireService {
-  constructor(public angularFire: AngularFire ) { }
+
+  public state: FirebaseAuthState;
+
+  constructor(public angularFire: AngularFire) {
+    this.angularFire.auth.subscribe ( (authState) => {
+      this.state = authState;
+    });
+  }
+
+  public redirectURL = "";
 
   loginWithGoogle() {
     return this.angularFire.auth.login({
@@ -13,6 +22,13 @@ export class AngularFireService {
   }
 
   logout() {
+    console.log("logout");
     return this.angularFire.auth.logout();
+
+  }
+
+  isLogged():boolean {
+    console.log(this.state);
+    return this.state != null;
   }
 }

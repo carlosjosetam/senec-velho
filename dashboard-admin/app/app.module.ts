@@ -6,6 +6,7 @@ import 'hammerjs';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AtividadesModule } from './atividades/atividades.module';
+import { LoginModule } from './login/login.module';
 import { PalestrantesModule } from './palestrantes/palestrantes.module';
 import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ export const firebaseConfig = {
     CoreModule,
     SharedModule,
     AtividadesModule,
+    LoginModule,
     PalestrantesModule,
     AppRoutingModule
   ],
