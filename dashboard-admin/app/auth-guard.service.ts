@@ -9,6 +9,7 @@ export class AuthGuard implements CanActivate {
     constructor(private angularFire: AngularFireService, private router: Router ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+      console.log(state);
       let url: string = state.url;
       return this.checkLogin(url);
     }

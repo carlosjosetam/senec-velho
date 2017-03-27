@@ -2,13 +2,10 @@
 
 	<md-sidenav class="mat-elevation-z12" [mode]="mode" (close-start)="sidenavService.changeState(false)" [opened]="sidenavService.sidenavOpened">
   		<sidenav></sidenav>
-  	</md-sidenav>
-  	
+  </md-sidenav>
+
   	<div class="main-content">
 		<router-outlet></router-outlet>
 	</div>
-	
+
 </md-sidenav-container>
-  	
-
-

@@ -3,6 +3,7 @@ import { SidenavService } from './core/sidenav/sidenav.service';
 import { Subscription } from "rxjs/Subscription";
 import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { MediaStateService } from './core/media-state.service';
+import { Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -42,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy{
     		this.mode = "over";
         this.mediaState.changeState("sm");
     		this.sidenavService.changeState(false);
-    	} 
+    	}
 
       else if (value == "'md' = screen and (min-width: 960px) and (max-width: 1279px) )") {
           this.mode = "side";
@@ -54,8 +55,7 @@ export class AppComponent implements OnInit, OnDestroy{
         this.mediaState.changeState("lg");
         this.sidenavService.changeState(true);
       }
-	      
+
     });
   }
 }
-

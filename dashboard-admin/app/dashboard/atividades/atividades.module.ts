@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule }    from '@angular/http';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { AtividadesRoutingModule } from './atividades-routing.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './shared/in-memory-data.service';
@@ -12,7 +12,7 @@ import { AtividadeCardComponent } from './shared/atividade-card/atividade-card.c
 import { VisibilityConfirmationComponent } from './shared/confirmation-dialogs/visibility-confirmation.component';
 import { LockConfirmationComponent } from './shared/confirmation-dialogs/lock-confirmation.component';
 import { AtividadeService } from './shared/atividade.service';
-import { AuthGuard } from '../auth-guard.service';
+import { AuthGuard } from '../../auth-guard.service';
 
 @NgModule({
 
