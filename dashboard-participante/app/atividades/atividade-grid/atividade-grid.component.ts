@@ -20,7 +20,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   private loading: boolean = true;
   private over = false;
   private selectedVisible = "none";
-  private selectedFilter = "Todas";
+  private selectedFilter = "Semana";
   private searchSubscription: Subscription;
 
   constructor(
@@ -54,8 +54,8 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.getAtividades();
-
   }
+
   ngOnDestroy() {
     if (this.searchSubscription) this.searchSubscription.unsubscribe();
   }
@@ -127,8 +127,8 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   }
 
   matchFilter(atividade: Atividade): boolean {
-    if (this.selectedFilter == 'Todas') return true;
-    if (this.selectedFilter == 'Confirmadas') {
+    if (this.selectedFilter == 'Semana') return true;
+    if (this.selectedFilter == 'Dia') {
       if (atividade.confirmed) return true;
       return false;
     }

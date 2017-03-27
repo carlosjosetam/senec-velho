@@ -9,28 +9,44 @@
     <div fxLayoutAlign="center center" class="label-icon-tipos"><md-icon>label_outline </md-icon></div>
 
     <div class="palestra" [class.selectedTipo]="selectedVisible=='Palestra'" (click)="toggleVisibilityPalestra()">
-      #palestra <span>({{getQtdPalestras()}})</span>
+      #palestra
     </div>
 
     <div class="workshop" [class.selectedTipo]="selectedVisible=='Workshop'" (click)="toggleVisibilityWorkshop()">
-      #workshop <span>({{getQtdWorkshops()}})</span>
+      #workshop
     </div>
 
     <div class="visita" [class.selectedTipo]="selectedVisible=='Visita técnica'" (click)="toggleVisibilityVisita()">
-      #visita <span>({{getQtdVisitas()}})</span>
+      #visita
     </div>
 
     <div class="outros" [class.selectedTipo]="selectedVisible=='Outros'" (click)="toggleVisibilityOutros()">
-      #outros <span>({{getQtdOutros()}})</span>
+      #outros
     </div>
 
     <span fxFlex></span>
 
-    <div flex fxLayout="row" style="margin-right: 16px" class="favoritas" [class.selectedTipo]="selectedVisible=='Favoritas'" (click)="toggleVisibilityFavoritas()">
-      <md-icon fxLayoutAlign="start center" style="color:red; margin-right: 4px;">favorite</md-icon>
-      Favoritas
-      <span style="margin-left: 4px;">({{getQtdFavoritas()}})</span>
-    </div>
+    <button md-icon-button style="margin-right: 16px" class="favoritas" [class.selectedTipo]="selectedVisible=='Favoritas'" (click)="toggleVisibilityFavoritas()">
+      <md-icon style="color:#B71C1C;">favorite</md-icon>
+    
+    </button>
+
+    <button class="filter-button" md-raised-button [mdMenuTriggerFor]="menu">
+      <md-icon *ngIf="selectedFilter == 'Semana'">view_week</md-icon>
+      <md-icon *ngIf="selectedFilter == 'Dia'">view_day</md-icon>
+      <span style="margin-left: 8px;"> {{selectedFilter}}</span>
+    </button>
+
+    <md-menu #menu="mdMenu">
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Semana'" (click)="selectedFilter='Semana'">
+        <md-icon>view_week</md-icon>
+        <span>Semana</span>
+      </button>
+      <button md-menu-item [class.selectedFilter]="selectedFilter=='Dia'" (click)="selectedFilter='Dia'">
+        <md-icon>view_day</md-icon>
+          <span>Dia</span>
+      </button>
+    </md-menu>
 
 </div>
 

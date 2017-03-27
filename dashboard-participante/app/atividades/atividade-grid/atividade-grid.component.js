@@ -21,7 +21,7 @@ var AtividadeGridComponent = (function () {
         this.loading = true;
         this.over = false;
         this.selectedVisible = "none";
-        this.selectedFilter = "Todas";
+        this.selectedFilter = "Semana";
     }
     AtividadeGridComponent.prototype.gotoDetail = function (atividade) {
         this.router.navigate(['/atividades/', atividade.id]);
@@ -134,9 +134,9 @@ var AtividadeGridComponent = (function () {
             this.selectedVisible = "none";
     };
     AtividadeGridComponent.prototype.matchFilter = function (atividade) {
-        if (this.selectedFilter == 'Todas')
+        if (this.selectedFilter == 'Semana')
             return true;
-        if (this.selectedFilter == 'Confirmadas') {
+        if (this.selectedFilter == 'Dia') {
             if (atividade.confirmed)
                 return true;
             return false;

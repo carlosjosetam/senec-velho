@@ -109,10 +109,11 @@ var AtividadeCardComponent = (function () {
         }
     };
     AtividadeCardComponent.prototype.favoritar = function () {
+        var msg = "";
         if (!this.atividade.confirmed)
-            var msg = "Voc\u00EA colocou como favorito a atividade\"" + this.atividade.titulo.substr(0, 60);
+            msg = "Voc\u00EA colocou como favorito a atividade\"" + this.atividade.titulo.substr(0, 60);
         else
-            var msg = "Voc\u00EA excluiu da sua lista de favoritos a atividade\"" + this.atividade.titulo.substr(0, 60);
+            msg = "Voc\u00EA excluiu da sua lista de favoritos a atividade\"" + this.atividade.titulo.substr(0, 60);
         if (this.atividade.titulo.length > 60)
             msg = msg + "...\"";
         var value = !this.atividade.confirmed;

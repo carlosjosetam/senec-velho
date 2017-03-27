@@ -107,9 +107,11 @@ export class AtividadeCardComponent {
 	}
 
   	favoritar(): void {
+  		let msg = "";
   		if (!this.atividade.confirmed)
-  			let msg = `Você colocou como favorito a atividade"${this.atividade.titulo.substr(0,60)}`;
-  		else	let msg = `Você excluiu da sua lista de favoritos a atividade"${this.atividade.titulo.substr(0,60)}`;	
+  			msg = `Você colocou como favorito a atividade"${this.atividade.titulo.substr(0,60)}`;
+  		else
+  			msg = `Você excluiu da sua lista de favoritos a atividade"${this.atividade.titulo.substr(0,60)}`;	
   		if (this.atividade.titulo.length > 60) msg = msg + `..."`;
   		let value = !this.atividade.confirmed;
   		this.handleChange("confirmed",value,msg);
