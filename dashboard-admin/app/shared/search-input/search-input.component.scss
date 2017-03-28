@@ -6,19 +6,49 @@
 	$accent: map-get($theme, accent);
 	$warn: map-get($theme, warn);
 
-	::-webkit-input-placeholder {
+	input.mat-primary::-webkit-input-placeholder {
 			color: map-get($primary, default-contrast);
 	}
-	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	input.mat-primary:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
    color: map-get($primary, default-contrast);
    opacity:  1;
 	}
-	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	input.mat-primary::-moz-placeholder { /* Mozilla Firefox 19+ */
    color: map-get($primary, default-contrast);
    opacity:  1;
 	}
-	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	input.mat-primary:-ms-input-placeholder { /* Internet Explorer 10-11 */
    color: map-get($primary, default-contrast);
+	}
+
+	input.mat-accent::-webkit-input-placeholder {
+			color: map-get($accent, default-contrast);
+	}
+	input.mat-accent:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: map-get($accent, default-contrast);
+   opacity:  1;
+	}
+	input.mat-accent::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: map-get($accent, default-contrast);
+   opacity:  1;
+	}
+	input.mat-accent:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: map-get($accent, default-contrast);
+	}
+
+	input.mat-warn::-webkit-input-placeholder {
+			color: map-get($warn, default-contrast);
+	}
+	input.mat-warn:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: map-get($warn, default-contrast);
+   opacity:  1;
+	}
+	input.mat-warn::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: map-get($warn, default-contrast);
+   opacity:  1;
+	}
+	input.mat-warn:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: map-get($warn, default-contrast);
 	}
 
 	input.mat-primary {
