@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { SidenavService } from '../../../core/sidenav/sidenav.service';
-import { MediaStateService } from '../../../core/media-state.service';
+import { SidenavService } from '../../../../core/sidenav/sidenav.service';
+import { MediaStateService } from '../../../../core/media-state.service';
 import { Subscription } from 'rxjs/Subscription';
-import { SearchInputComponent } from '../../../shared/search-input/search-input.component';
+import { SearchInputComponent } from '../../../../shared/search-input/search-input.component';
 
 
 @Component ({
@@ -24,7 +24,7 @@ export class AtividadeToolbarComponent  {
 		this.mediaSubscription = this.mediaState.state$.subscribe(state => {
 			this.state = state;
 		})
-		
+
 	}
 
 	ngOnDestroy() {
@@ -34,5 +34,5 @@ export class AtividadeToolbarComponent  {
 	setIsSearchOpen(value: boolean) {
 		this.isSearchOpen = value;
 	}
-  
+
 }

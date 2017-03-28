@@ -4,7 +4,7 @@ import { Atividade } from '../shared/atividade.model';
 import { AtividadeService } from '../shared/atividade.service';
 import { Subscription } from 'rxjs/Subscription';
 import { AtividadeCardComponent } from '../shared/atividade-card/atividade-card.component';
-import { SearchInputService } from '../../shared/search-input/search-input.service';
+import { SearchInputService } from '../../../shared/search-input/search-input.service';
 
 @Component({
   moduleId: module.id,
@@ -14,7 +14,7 @@ import { SearchInputService } from '../../shared/search-input/search-input.servi
 })
 
 export class AtividadeGridComponent implements OnInit, OnDestroy {
-  
+
   private atividades: Atividade[];
   private atividadesFiltradas: Atividade[]
   private loading: boolean = true;
@@ -24,7 +24,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   private searchSubscription: Subscription;
 
   constructor(
-    
+
     private atividadeService: AtividadeService,
     private router: Router,
     private searchTerm: SearchInputService
@@ -34,7 +34,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   gotoDetail(atividade: Atividade): void {
     this.router.navigate(['/atividades/', atividade.id]);
   }
-  
+
   getAtividades(): void {
     this.atividadeService.getAtividades().then(atividades => {
       this.atividades = atividades.sort(this.compare);
@@ -51,7 +51,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
       })
     });
   }
-  
+
   ngOnInit(): void {
     this.getAtividades();
 
@@ -59,7 +59,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.searchSubscription) this.searchSubscription.unsubscribe();
   }
-  
+
   add(titulo: string): void {
     titulo = titulo.trim();
     if (!titulo) { return; }
@@ -79,7 +79,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
     if (a.inicioAtividade < b.inicioAtividade) return -1;
     if (a.inicioAtividade > b.inicioAtividade) return 1;
     return 0;
-  } 
+  }
   getQtdPalestras(): number {
     return this.atividadesFiltradas.filter(a => a.tipo == "Palestra").length;
   }
@@ -103,7 +103,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
      return this.atividadesFiltradas.filter(a => {
       if (this.selectedVisible != a.tipo && this.selectedVisible != 'none') return false;
       return true;
-    }).length; 
+    }).length;
   }
   toggleVisibilityPalestra(): void {
     if (this.selectedVisible != "Palestra") this.selectedVisible = "Palestra";

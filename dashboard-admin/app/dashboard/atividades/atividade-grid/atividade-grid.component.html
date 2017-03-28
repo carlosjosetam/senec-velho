@@ -62,7 +62,7 @@
       </div>
 
       <md-divider></md-divider>
-      <div *ngFor="let timeGroup  of ( dayGroup.value | groupBy: 'inicioAtividade')"> 
+      <div *ngFor="let timeGroup  of ( dayGroup.value | groupBy: 'inicioAtividade')">
         <div *ngFor="let atividade of timeGroup.value;">
           <div *ngIf="(selectedVisible == 'none' || selectedVisible == atividade.tipo) && matchFilter(atividade)">
             <h3 md-subheader>{{atividade.inicioAtividade | date: 'shortTime'}}</h3>

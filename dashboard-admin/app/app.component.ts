@@ -4,6 +4,7 @@ import { Subscription } from "rxjs/Subscription";
 import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { MediaStateService } from './core/media-state.service';
 import { Router} from '@angular/router';
+import { AngularFireService } from './providers/angularfire.service';
 
 @Component({
   moduleId: module.id,
@@ -21,6 +22,9 @@ export class AppComponent implements OnInit, OnDestroy{
   constructor(@Inject(ObservableMedia)  private _media$: any, private sidenavService: SidenavService, private mediaState: MediaStateService) { }
 
   ngOnInit() {
+
+
+
     this._watcher = this.watchMQChanges();
   }
 

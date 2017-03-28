@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MediaStateService } from '../core/media-state.service';
+import { MediaStateService } from '../../core/media-state.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class AtividadesComponent implements OnInit, OnDestroy {
 
 	constructor(private mediaState: MediaStateService) { }
-	
+
 	state = "" ;
 	subscription: Subscription;
 

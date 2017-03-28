@@ -6,29 +6,25 @@ export class AngularFireService {
 
   public state: FirebaseAuthState;
 
-  constructor(public angularFire: AngularFire) {
-    this.angularFire.auth.subscribe ( (authState) => {
-      this.state = authState;
-    });
+  constructor(public angularFireService: AngularFire) {
+
   }
 
   public redirectURL = "";
 
   loginWithGoogle() {
-    return this.angularFire.auth.login({
+    return this.angularFireService.auth.login({
       provider: AuthProviders.Google,
       method: AuthMethods.Popup
     });
   }
 
   logout() {
-    console.log("logout");
-    return this.angularFire.auth.logout();
+    return this.angularFireService.auth.logout();
 
   }
 
   isLogged():boolean {
-    console.log(this.state);
     return this.state != null;
   }
 }
