@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Atividade } from '../shared/atividade.model';
 import { AtividadeService } from '../shared/atividade.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -27,12 +27,13 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
 
     private atividadeService: AtividadeService,
     private router: Router,
+    private route: ActivatedRoute,
     private searchTerm: SearchInputService
 
   ) { }
 
   gotoDetail(atividade: Atividade): void {
-    this.router.navigate(['/dashboard/atividades/', atividade.id]);
+    this.router.navigate([atividade.id], { relativeTo: this.route });
   }
 
   getAtividades(): void {

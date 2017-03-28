@@ -36,3 +36,9 @@ md-toolbar {
 	padding-top: 12px;
 	background-image: url('app/assets/img/pattern.png') !important;
 }
+
+.disabled {
+	pointer-events: none;
+	color: #000000;
+    opacity: 0.38;
+}
