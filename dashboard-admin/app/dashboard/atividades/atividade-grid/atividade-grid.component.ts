@@ -32,7 +32,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   ) { }
 
   gotoDetail(atividade: Atividade): void {
-    this.router.navigate(['/atividades/', atividade.id]);
+    this.router.navigate(['/dashboard/atividades/', atividade.id]);
   }
 
   getAtividades(): void {
