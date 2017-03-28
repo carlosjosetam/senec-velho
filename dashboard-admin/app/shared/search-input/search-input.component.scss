@@ -6,9 +6,23 @@
 	$accent: map-get($theme, accent);
 	$warn: map-get($theme, warn);
 
-	
+	::-webkit-input-placeholder {
+			color: map-get($primary, default-contrast);
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: map-get($primary, default-contrast);
+   opacity:  1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: map-get($primary, default-contrast);
+   opacity:  1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: map-get($primary, default-contrast);
+	}
 
-	input.mat-primary { 
+	input.mat-primary {
+
 		color: map-get($primary, default-contrast);
 	}
 	input.mat-accent {
@@ -31,5 +45,3 @@ input {
 input:focus {
 	outline: 0;
 }
-
-
