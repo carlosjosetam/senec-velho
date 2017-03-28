@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireService } from '../../providers/angularfire.service';
+import { AngularFireService } from '../../../providers/angularfire.service';
 
 @Component ({
 	moduleId: module.id,

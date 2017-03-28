@@ -3,7 +3,6 @@ import { SidenavService } from './core/sidenav/sidenav.service';
 import { Subscription } from "rxjs/Subscription";
 import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { MediaStateService } from './core/media-state.service';
-import { AngularFireService } from '../providers/angularfire.service';
 
 @Component({
   moduleId: module.id,

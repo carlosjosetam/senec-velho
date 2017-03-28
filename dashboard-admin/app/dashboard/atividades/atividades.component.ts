@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MediaStateService } from '../../core/media-state.service';
+import { MediaStateService } from '../core/media-state.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
