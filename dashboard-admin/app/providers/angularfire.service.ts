@@ -43,7 +43,6 @@ export class AngularFireService {
   }
 
   isLogged():boolean {
-    console.log(this.state);
     return this.state != null;
   }
 
