@@ -12,14 +12,21 @@ export class AngularFireService {
 
   public redirectURL = "";
 
-  registerUser(email: string, password: string) {
+  registrarUser(email: string, password: string) {
     return this.angularFireService.auth.createUser({
       email: email,
       password: password
     });
   }
 
-  loginWithEmail(email: string, password: string) {
+  registrarAdmin(uid: string, nome: string, email: string) {
+    return this.angularFireService.database.object('admins/' + uid).set({
+      nome: nome,
+      email: email,
+    });
+  }
+
+  loginEmail(email: string, password: string) {
     return this.angularFireService.auth.login({
         email: email,
         password: password,
@@ -38,5 +45,9 @@ export class AngularFireService {
   isLogged():boolean {
     console.log(this.state);
     return this.state != null;
+  }
+
+  getAdmin(uid: string) {
+    return this.angularFireService.database.object('admins/' + uid);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireService } from '../../../providers/angularfire.service';
+import { FirebaseObjectObservable } from 'angularfire2';
 
 @Component ({
 	moduleId: module.id,
@@ -8,9 +9,16 @@ import { AngularFireService } from '../../../providers/angularfire.service';
 	styleUrls: ['sidenav.component.css'],
 })
 
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
 
 	constructor(public angularFire: AngularFireService) {	}
+
+	private nome: FirebaseObjectObservable<any>;
+	private email: FirebaseObjectObservable<any>;
+	
+	ngOnInit() {
+		this.nome = this.angularFire.getAdmin(this.angularFire.state.uid);
+	}
 	menuItems = [
 		{'descricao': 'Atividades', 'link': 'atividades', 'icon': 'dashboard', 'category':'', 'disabled': false},
 		{'descricao': 'Participantes', 'link': 'participantes', 'icon': 'school','category':'', 'disabled': true },

@@ -2,8 +2,9 @@
 		<img src="app/assets/img/senec-logo.jpg" class="senec-avatar"/>
 		<md-toolbar-row fxLayoutAlign="start start">
 			<div fxLayout="column">
-				<span *ngIf="angularFire.state" flex class="name" >Olá, {{angularFire.state.auth.displayName.split(" ")[0]}}</span>
-				<span *ngIf="angularFire.state" flex class="email">{{angularFire.state.auth.email}}</span>
+
+				<span flex class="name" >Olá, {{ (nome | async)?.nome.split(" ")[0] }}</span>
+				<span *ngIf="angularFire.state" flex class="email">{{ (nome | async)?.email }}</span>
 			</div>
 		</md-toolbar-row>
 </md-toolbar>

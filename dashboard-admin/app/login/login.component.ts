@@ -11,18 +11,21 @@ import { AngularFireService } from '../providers/angularfire.service';
 export class LoginComponent {
   constructor(public angularFire: AngularFireService, private router: Router) {  }
 
+  private nome: string;
   private email: string;
   private password: string;
 
   login() {
-    this.angularFire.loginWithEmail(this.email, this.password).then((data: any) => {
+    this.angularFire.loginEmail(this.email, this.password).then((data: any) => {
       this.router.navigate([this.angularFire.redirectURL]);
     })
   }
 
-  register() {
-    this.angularFire.registerUser(this.email, this.password).then((data) => {
-      console.log(data);
+  registrar() {
+    this.angularFire.registrarUser(this.email, this.password).then((user) => {
+      this.angularFire.registrarAdmin(user.uid, this.nome, this.email).then(() => {
+        this.login();
+      })
     });
   }
 
