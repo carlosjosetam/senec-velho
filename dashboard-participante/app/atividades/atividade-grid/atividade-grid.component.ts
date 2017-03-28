@@ -129,7 +129,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   matchFilter(atividade: Atividade): boolean {
     if (this.selectedFilter == 'Semana') return true;
     if (this.selectedFilter == 'Dia') {
-      if (atividade.confirmed) return true;
+      if (atividade.pontos == '500') return true;
       return false;
     }
     if (this.selectedFilter == 'Talvez' && !atividade.confirmed) return true;

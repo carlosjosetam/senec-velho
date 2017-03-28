@@ -16,16 +16,25 @@
     <span class="lead" style="display: inline-block;display: -webkit-box;-webkit-line-clamp: 2;overflow:hidden;-webkit-box-orient: vertical;">{{atividade.titulo}}</span>
   </div>
   
-
   <span fxFlex></span>
 
+  <div flex style="align-items: flex-start;" fxLayoutAlign="start">
 
   <div class="quick-actions" *ngIf="atividade.confirmed" [class.visible]="true" fxLayout="row" fxLayoutAlign="start end">
     <md-icon *ngIf="atividade.confirmed" class="icon-action" mdTooltip="Retirar dos favoritos" (click)="$event.stopPropagation();favoritar()">favorite</md-icon>
   </div>
   
-  <div class="quick-actions" *ngIf="!atividade.confirmed && !loading" [class.visible]="over" fxLayoutAlign="start end">
+  <div class="quick-actions" *ngIf="!atividade.confirmed && !loading" [class.visible]="over" fxLayoutAlign="start">
     <md-icon  *ngIf="!atividade.confirmed" (click)="$event.stopPropagation();favoritar()" class="icon-action" mdTooltip="Amei">favorite_border</md-icon>
+  </div>
+
+  <span fxFlex></span>
+
+  <div flex fxLayout="row" class="quick-actions" *ngIf="!loading" [class.visible]="true" >
+    <md-icon style="margin-right: 0px" class="icon-action" mdTooltip="Pontuação">star_rate</md-icon>
+    <span style="font-size: 18px;">{{atividade.pontos}}</span>
+  </div>
+
   </div>
 
 </div>
