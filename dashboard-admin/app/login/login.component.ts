@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
+
 @Component({
   moduleId: module.id,
   selector: 'login',
   templateUrl: 'login.component.html',
-  styleUrls: ['login.component.css']
+  styleUrls: ['login.component.css'],
 })
 
 export class LoginComponent {
-  constructor(public angularFire: AuthService, private router: Router) {  }
+  constructor(public authService: AuthService, private router: Router) {  }
 
   private email: string;
   private password: string;
@@ -22,9 +23,9 @@ export class LoginComponent {
     this.hasError = false;
     this.loading = true;
 
-    this.angularFire.loginEmail(this.email, this.password).then((data: any) => {
+    this.authService.loginEmail(this.email, this.password).then((data: any) => {
       this.loading = false;
-      this.router.navigate([this.angularFire.redirectURL]);
+      this.router.navigate([this.authService.redirectURL]);
     })
     .catch((error: any) => {
       this.hasError = true;
@@ -54,8 +55,8 @@ export class LoginComponent {
   }
 
   /*registrar() {
-    this.angularFire.registrarUser(this.email, this.password).then((user) => {
-      this.angularFire.registrarAdmin(user.uid, this.nome, this.email).then(() => {
+    this.authService.registrarUser(this.email, this.password).then((user) => {
+      this.authService.registrarAdmin(user.uid, this.nome, this.email).then(() => {
         this.login();
       })
     });

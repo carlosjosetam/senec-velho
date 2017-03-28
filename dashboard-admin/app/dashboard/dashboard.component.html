@@ -1,4 +1,9 @@
-<md-sidenav-container (backdrop-clicked)="sidenav.toggleOpened()" fxFlexFill>
+<div class="spinner-overlay" fxFlexFill fxLayout="column" *ngIf="loading" fxLayoutAlign="center center">
+    <md-spinner mode="indeterminate"></md-spinner>
+    <h1 class="h1">Baixando suas configurações...</h1>
+</div>
+
+<md-sidenav-container [class.hide]="loading" (backdrop-clicked)="sidenav.toggleOpened()" fxFlexFill>
 
 	<md-sidenav class="mat-elevation-z12" [mode]="mode" (close-start)="sidenavService.changeState(false)" [opened]="sidenavService.sidenavOpened">
   		<sidenav></sidenav>

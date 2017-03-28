@@ -7,7 +7,7 @@ export class AuthService {
 
   public state: FirebaseAuthState;
 
-  constructor(public angularFireService: AngularFire, private router: Router) {
+  constructor(private angularFireService: AngularFire, private router: Router) {
 
   }
 

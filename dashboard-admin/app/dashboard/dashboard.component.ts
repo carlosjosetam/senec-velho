@@ -3,22 +3,26 @@ import { SidenavService } from './core/sidenav/sidenav.service';
 import { Subscription } from "rxjs/Subscription";
 import { MediaChange, ObservableMedia } from "@angular/flex-layout";
 import { MediaStateService } from './core/media-state.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { AdminService } from './admin/admin.service';
+import { Admin } from './admin/admin.model';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   moduleId: module.id,
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['dashboard.component.css']
+  styleUrls: ['dashboard.component.css'],
 })
 
-export class DashboardComponent implements OnDestroy{
+export class DashboardComponent implements OnInit, OnDestroy{
 
   private _watcher : Subscription;
   private mode = "";
+  private loading: boolean;
+  private admin: Admin;
 
   constructor(@Inject(ObservableMedia)  private _media$: any, private sidenavService: SidenavService,
-    private mediaState: MediaStateService, private router: Router, private route: ActivatedRoute) {
+    private mediaState: MediaStateService, private adminService: AdminService, private authService: AuthService) {
       if (this._media$.isActive('xs')) {
         this.mode = "over";
         this.mediaState.changeState("xs");
@@ -65,6 +69,14 @@ export class DashboardComponent implements OnDestroy{
           }
       });
     }
+
+  ngOnInit() {
+    this.loading = true;
+    this.adminService.getAdmin(this.authService.state.uid).subscribe((admin) => {
+      this.admin = admin;
+      this.loading = false;
+    });
+  }
 
   ngOnDestroy() {
     this._watcher.unsubscribe();

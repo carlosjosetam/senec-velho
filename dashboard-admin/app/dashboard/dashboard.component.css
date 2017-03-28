@@ -9,3 +9,7 @@ md-sidenav {
 	background-color: rgb(245, 245, 245);
 	/*background: url('background.jpg');*/
 }
+
+.hide {
+	display: none;
+}
