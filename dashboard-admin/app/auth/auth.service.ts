@@ -3,7 +3,7 @@ import { AngularFire, FirebaseAuthState, AuthMethods, AuthProviders } from 'angu
 import { Router } from '@angular/router';
 
 @Injectable()
-export class AngularFireService {
+export class AuthService {
 
   public state: FirebaseAuthState;
 
@@ -12,20 +12,6 @@ export class AngularFireService {
   }
 
   public redirectURL = "";
-
-  registrarUser(email: string, password: string) {
-    return this.angularFireService.auth.createUser({
-      email: email,
-      password: password
-    });
-  }
-
-  registrarAdmin(uid: string, nome: string, email: string) {
-    return this.angularFireService.database.object('admins/' + uid).set({
-      nome: nome,
-      email: email,
-    });
-  }
 
   loginEmail(email: string, password: string) {
     return this.angularFireService.auth.login({
@@ -54,7 +40,5 @@ export class AngularFireService {
     return this.state != null;
   }
 
-  getAdmin(uid: string) {
-    return this.angularFireService.database.object('admins/' + uid);
-  }
+
 }

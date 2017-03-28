@@ -10,6 +10,7 @@ import { SidenavComponent} from './sidenav/sidenav.component';
 
 import { MediaStateService } from './media-state.service';
 import { SidenavService } from './sidenav/sidenav.service';
+import { AdminService} from '../admin/admin.service';
 // other imports
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { SidenavService } from './sidenav/sidenav.service';
   	RouterModule
   ],
   declarations: [SidenavComponent],
-  providers: [MediaStateService, SidenavService],
+  providers: [MediaStateService, SidenavService, AdminService],
   exports: [SidenavComponent]
 })
 export class CoreModule { }

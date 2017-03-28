@@ -9,8 +9,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PageNotFoundComponent } from './not-found.component';
-import { AuthGuard } from './auth-guard.service';
-import { AngularFireService } from './providers/angularfire.service';
+import { AuthGuard } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
 import { AppComponent } from './app.component';
 import { LOCALE_ID } from '@angular/core';
 
@@ -37,7 +37,7 @@ export const firebaseConfig = {
     PageNotFoundComponent,
     AppComponent
   ],
-  providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }, AuthGuard, AngularFireService],
+  providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }, AuthGuard, AuthService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

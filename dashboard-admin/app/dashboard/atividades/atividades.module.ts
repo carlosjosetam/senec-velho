@@ -11,7 +11,7 @@ import { AtividadeCardComponent } from './shared/atividade-card/atividade-card.c
 import { VisibilityConfirmationComponent } from './shared/confirmation-dialogs/visibility-confirmation.component';
 import { LockConfirmationComponent } from './shared/confirmation-dialogs/lock-confirmation.component';
 import { AtividadeService } from './shared/atividade.service';
-import { AuthGuard } from '../../auth-guard.service';
+import { AuthGuard } from '../../auth/auth-guard.service';
 
 @NgModule({
 

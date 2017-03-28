@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireService } from '../../../providers/angularfire.service';
+import { AuthService } from '../../../auth/auth.service';
 import { FirebaseObjectObservable } from 'angularfire2';
+import { AdminService } from '../../admin/admin.service';
 
 @Component ({
 	moduleId: module.id,
@@ -11,16 +12,16 @@ import { FirebaseObjectObservable } from 'angularfire2';
 
 export class SidenavComponent implements OnInit {
 
-	constructor(public angularFire: AngularFireService) {	}
+	constructor(public authService: AuthService, public adminService: AdminService) {	}
 
 	private admin: FirebaseObjectObservable<any>;
 
 	ngOnInit() {
-		this.admin = this.angularFire.getAdmin(this.angularFire.state.uid);
+		this.admin = this.adminService.getAdmin(this.authService.state.uid);
 	}
 
 	logout() {
-  	return this.angularFire.logout();
+  	return this.authService.logout();
 	}
 
 	menuItems = [

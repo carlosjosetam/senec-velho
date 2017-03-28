@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireService } from '../providers/angularfire.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   moduleId: module.id,
@@ -10,7 +10,7 @@ import { AngularFireService } from '../providers/angularfire.service';
 })
 
 export class LoginComponent {
-  constructor(public angularFire: AngularFireService, private router: Router) {  }
+  constructor(public angularFire: AuthService, private router: Router) {  }
 
   private email: string;
   private password: string;

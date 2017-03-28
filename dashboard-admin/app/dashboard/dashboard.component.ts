@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['dashboard.component.css']
 })
 
-export class DashboardComponent implements OnInit, OnDestroy{
+export class DashboardComponent implements OnDestroy{
 
   private _watcher : Subscription;
   private mode = "";
@@ -66,13 +66,7 @@ export class DashboardComponent implements OnInit, OnDestroy{
       });
     }
 
-  ngOnInit() {
-    this.router.navigate(['atividades'], {relativeTo: this.route});
-  }
-
   ngOnDestroy() {
     this._watcher.unsubscribe();
   }
-
-
 }

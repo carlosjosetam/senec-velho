@@ -5,7 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { CoreModule } from './core/core.module';
 import { AtividadesModule} from './atividades/atividades.module';
-import { AuthGuard } from '../auth-guard.service';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 
 @NgModule({

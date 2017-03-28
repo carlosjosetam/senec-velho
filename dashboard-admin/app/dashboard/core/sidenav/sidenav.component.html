@@ -8,7 +8,7 @@
 			<div fxLayout="column">
 
 				<span flex class="name" >Olá, {{ (admin | async)?.nome.split(" ")[0] }}</span>
-				<span *ngIf="angularFire.state" flex class="email">{{ (admin | async)?.email }}</span>
+				<span flex class="email">{{ (admin | async)?.email }}</span>
 			</div>
 		</md-toolbar-row>
 </md-toolbar>

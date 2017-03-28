@@ -3,7 +3,7 @@ import { Routes, RouterModule }  from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { AtividadesComponent } from './atividades/atividades.component';
 import { AtividadeDetailComponent } from './atividades/atividade-detail/atividade-detail.component';
-import { AuthGuard } from '../auth-guard.service';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 export const routes: Routes = [
   {
@@ -11,6 +11,11 @@ export const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: '',
+        redirectTo: 'atividades',
+        pathMatch: 'full'
+      },
       {
         path: 'atividades',
         component: AtividadesComponent
