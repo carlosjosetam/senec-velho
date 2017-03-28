@@ -7,9 +7,6 @@ import { AngularFireService } from './providers/angularfire.service';
 export class AuthGuard implements CanActivate {
 
     constructor(private angularFire: AngularFireService, private router: Router ) {
-      this.angularFire.angularFireService.auth.subscribe ( (authState: any) => {
-        this.angularFire.state = authState;
-      });
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {

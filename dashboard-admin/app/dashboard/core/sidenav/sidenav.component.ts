@@ -13,12 +13,16 @@ export class SidenavComponent implements OnInit {
 
 	constructor(public angularFire: AngularFireService) {	}
 
-	private nome: FirebaseObjectObservable<any>;
-	private email: FirebaseObjectObservable<any>;
-	
+	private admin: FirebaseObjectObservable<any>;
+
 	ngOnInit() {
-		this.nome = this.angularFire.getAdmin(this.angularFire.state.uid);
+		this.admin = this.angularFire.getAdmin(this.angularFire.state.uid);
 	}
+
+	logout() {
+  	return this.angularFire.logout();
+	}
+
 	menuItems = [
 		{'descricao': 'Atividades', 'link': 'atividades', 'icon': 'dashboard', 'category':'', 'disabled': false},
 		{'descricao': 'Participantes', 'link': 'participantes', 'icon': 'school','category':'', 'disabled': true },

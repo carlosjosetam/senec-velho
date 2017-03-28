@@ -1,12 +1,13 @@
 import { Injectable, OnInit, Inject } from '@angular/core';
 import { AngularFire, FirebaseAuthState, AuthMethods, AuthProviders } from 'angularfire2';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AngularFireService {
 
   public state: FirebaseAuthState;
 
-  constructor(public angularFireService: AngularFire) {
+  constructor(public angularFireService: AngularFire, private router: Router) {
 
   }
 
@@ -34,12 +35,19 @@ export class AngularFireService {
       {
         provider: AuthProviders.Password,
         method: AuthMethods.Password,
+      })
+      .then( () => {
+        this.angularFireService.auth.subscribe ( (authState: any) => {
+        this.state = authState;
+        if (!this.state) {
+          this.router.navigate(['/login']);
+        }
       });
+    });
   }
 
   logout() {
-    return this.angularFireService.auth.logout();
-
+    return this.angularFireService.auth.logout()
   }
 
   isLogged():boolean {
