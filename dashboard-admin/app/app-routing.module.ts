@@ -4,20 +4,21 @@ import { PageNotFoundComponent } from './not-found.component';
 import { AuthGuard }             from './auth-guard.service';
 
 export const routes: Routes = [
-  {
-    path: '',
-    canActivate: [AuthGuard],
-    redirectTo: 'atividades',
-    pathMatch: 'full'
-  },
+
   {
     path:'login',
     redirectTo: 'login'
   },
 
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+
+
   { path: '**',
-    component: PageNotFoundComponent,
-    canActivate: [AuthGuard]
+    component: PageNotFoundComponent
   }
 ];
 

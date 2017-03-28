@@ -3,14 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
-import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { AtividadesModule } from './dashboard/atividades/atividades.module';
 import { LoginModule } from './login/login.module';
-import { PalestrantesModule } from './dashboard/palestrantes/palestrantes.module';
 import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
-
+import { DashboardModule } from './dashboard/dashboard.module';
 import { PageNotFoundComponent } from './not-found.component';
 import { AuthGuard } from './auth-guard.service';
 import { AngularFireService } from './providers/angularfire.service';
@@ -31,11 +28,9 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
-    CoreModule,
     SharedModule,
-    AtividadesModule,
+    DashboardModule,
     LoginModule,
-    PalestrantesModule,
     AppRoutingModule
   ],
   declarations: [

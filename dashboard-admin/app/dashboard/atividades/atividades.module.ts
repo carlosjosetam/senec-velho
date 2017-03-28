@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule }    from '@angular/http';
 import { SharedModule } from '../../shared/shared.module';
-import { AtividadesRoutingModule } from './atividades-routing.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './shared/in-memory-data.service';
 import { AtividadesComponent } from './atividades.component';
@@ -19,8 +18,7 @@ import { AuthGuard } from '../../auth-guard.service';
 	imports: [
  	HttpModule,
 	InMemoryWebApiModule.forRoot(InMemoryDataService),
-  SharedModule,
-  AtividadesRoutingModule,
+  SharedModule
   ],
 
 	declarations: [
@@ -28,7 +26,7 @@ import { AuthGuard } from '../../auth-guard.service';
 		AtividadeCardComponent, VisibilityConfirmationComponent, LockConfirmationComponent
 	],
 	entryComponents: [VisibilityConfirmationComponent, LockConfirmationComponent],
-	providers: [ AtividadeService, AuthGuard ],
+	providers: [ AtividadeService ],
 
 })
 
