@@ -1,0 +1,28 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+  <md-card class="forms mat-elevation-z24" fxFlexFill.xs fxFlex.xs="100" class.gt-xs="gt-xs-forms"
+   fxFlex.gt-xs="480px" fxLayout="column"  fxLayoutGap="24px" class.xs="mobile-forms">
+
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <img src="app/assets/img/logo-senec-full.png" class="senec-avatar"/>
+        <h2 class="slogan h2">Conectando o universo acadêmico com a prática na engenharia.</h2>
+      </div>
+      <md-input-container>
+        <input mdInput placeholder="Email" type="email" [(ngModel)]="email">
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Senha" type="password" [(ngModel)]="password">
+      </md-input-container>
+
+      <button *ngIf="!loading" md-raised-button class="login-button" (click)="login()" color="primary">
+      Login
+      </button>
+
+      <div class="loader" *ngIf="loading" fxLayoutAlign="center center">
+          <md-spinner mode="indeterminate"></md-spinner>
+      </div>
+
+      <span *ngIf="hasError" class="error">{{errorMessage}}</span>
+
+  </md-card>
+</div>

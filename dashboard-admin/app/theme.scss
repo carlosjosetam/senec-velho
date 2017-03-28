@@ -1,7 +1,7 @@
 @import './../node_modules/@angular/material/core/theming/all-theme';
 
-@import './atividades/shared/atividade-card/atividade-card.component.scss';
-@import './atividades/atividade-grid/atividade-grid.component.scss';
+@import './dashboard/atividades/shared/atividade-card/atividade-card.component.scss';
+@import './dashboard/atividades/atividade-grid/atividade-grid.component.scss';
 @import './shared/search-input/search-input.component.scss';
 
 @include mat-core();

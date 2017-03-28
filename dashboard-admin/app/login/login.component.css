@@ -1,0 +1,46 @@
+.container {
+  background: url('app/assets/img/equipe.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.forms {
+    min-height: 560px;
+}
+
+.mobile-forms {
+  height: 100%;
+}
+
+.gt-xs-forms {
+  opacity: 0.95;
+}
+.senec-avatar {
+	height: 72px;
+}
+
+.slogan {
+  text-align: center;
+}
+
+.login-button {
+  width: 100%;
+}
+.error {
+  color: red;
+}
+
+.loader {
+  margin-bottom: 24px;
+  height: 36px;
+}
+md-spinner {
+  width: 24px;
+  height: 24px;
+}
+
+md-input-container {
+  width: 100%;
+  font-size: 16px;
+}

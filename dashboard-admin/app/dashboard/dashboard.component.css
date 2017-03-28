@@ -1,0 +1,15 @@
+md-sidenav {
+	width: 240px;
+}
+
+.main-content {
+	min-height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: rgb(245, 245, 245);
+	/*background: url('background.jpg');*/
+}
+
+.hide {
+	display: none;
+}

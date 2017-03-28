@@ -1,0 +1,25 @@
+<md-toolbar color="primary">
+		<div fxFlexFill fxLayout="row">
+			<img src="app/assets/img/senec-logo.jpg" class="senec-avatar"/>
+			<span fxFlex></span>
+			<button (click)="logout()" md-icon-button mdTooltip="Logout"><md-icon>exit_to_app</md-icon></button>
+		</div>
+		<md-toolbar-row fxLayoutAlign="start start">
+			<div fxLayout="column">
+
+				<span flex class="name" >Olá, {{ (admin | async)?.nome.split(" ")[0] }}</span>
+				<span flex class="email">{{ (admin | async)?.email }}</span>
+			</div>
+		</md-toolbar-row>
+</md-toolbar>
+
+<md-list-item *ngFor=" let group of menuItems | groupBy:'category' let first = first ">
+	<md-nav-list>
+			<md-divider *ngIf="!first"></md-divider>
+			<h3 *ngIf="!first" md-subheader>{{group.key}}</h3>
+			<a md-list-item [class.disabled] = "item.disabled == true" *ngFor="let item of group.value" routerLink="{{item.link}}" routerLinkActive="active">
+  				<md-icon md-list-avatar fxLayoutAlign= "start center">{{item.icon}}</md-icon>
+  				<h4 md-line>{{item.descricao}}</h4>
+	  		</a>
+	</md-nav-list>
+</md-list-item>
