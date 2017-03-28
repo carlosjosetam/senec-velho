@@ -11,10 +11,19 @@ import { AngularFireService } from '../providers/angularfire.service';
 export class LoginComponent {
   constructor(public angularFire: AngularFireService, private router: Router) {  }
 
+  private email: string;
+  private password: string;
+
   login() {
-    this.angularFire.loginWithGoogle().then((data) => {
+    this.angularFire.loginWithEmail(this.email, this.password).then((data: any) => {
       this.router.navigate([this.angularFire.redirectURL]);
     })
+  }
+
+  register() {
+    this.angularFire.registerUser(this.email, this.password).then((data) => {
+      console.log(data);
+    });
   }
 
   logout() {

@@ -12,11 +12,22 @@ export class AngularFireService {
 
   public redirectURL = "";
 
-  loginWithGoogle() {
-    return this.angularFireService.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
+  registerUser(email: string, password: string) {
+    return this.angularFireService.auth.createUser({
+      email: email,
+      password: password
     });
+  }
+
+  loginWithEmail(email: string, password: string) {
+    return this.angularFireService.auth.login({
+        email: email,
+        password: password,
+      },
+      {
+        provider: AuthProviders.Password,
+        method: AuthMethods.Password,
+      });
   }
 
   logout() {
@@ -25,6 +36,7 @@ export class AngularFireService {
   }
 
   isLogged():boolean {
+    console.log(this.state);
     return this.state != null;
   }
 }

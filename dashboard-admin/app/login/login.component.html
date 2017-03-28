@@ -1,6 +1,18 @@
-<button md-button (click)="login()">
+<!--<button md-button (click)="login()">
 Login
-</button>
-<button md-button (click)="logout()">
-Logout
-</button>
+</button>-->
+<div fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+  <md-card fxFlex="300px" fxLayout="column">
+      <md-input-container>
+        <input mdInput placeholder="Email" type="email" [(ngModel)]="email">
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Senha" type="password" [(ngModel)]="password">
+      </md-input-container>
+
+      <button md-button (click)="login()" color="primary">
+      Login
+      </button>
+  </md-card>
+</div>
