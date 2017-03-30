@@ -1,0 +1,331 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"providers	property"
+			],
+			[
+				"angular",
+				"angular-in-memory-web-api	external module name"
+			],
+			[
+				"Hero",
+				"HeroService	alias"
+			],
+			[
+				"but",
+				"button	Tag"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"To",
+				"toggleClass"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"hid",
+				"hide"
+			],
+			[
+				"alig",
+				"align-content"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"con",
+				"align-content"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "{\n	\"folders\":\n	[\n		{\n			\"path\": \".\",\n			\"file_exclude_patterns\":[\"app/*.js\", \"app/*.js.map\", \"app/*.spec\"]\n		}\n	]\n}\n",
+			"file": "senec.sublime-project",
+			"file_size": 116,
+			"file_write_time": 131347886240000000,
+			"settings":
+			{
+				"buffer_size": 116,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/tamancoldi/senec/dashboard-participante/app"
+	],
+	"file_history":
+	[
+		"/Users/tamancoldi/my-first/hello3.html",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/mock-heroes.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/hero.service.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/index.html",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/app.module.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/app.component.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/heroes.component.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/app.module.js",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/app.component.js",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/hero-detail.component.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/app/hero.ts",
+		"/Users/tamancoldi/angular_tour_of_heros/src/main.ts",
+		"/Users/tamancoldi/Desktop/toh-1/src/index.html",
+		"/Users/tamancoldi/senec/tsconfig.json",
+		"/Users/tamancoldi/senec/package.json",
+		"/Users/tamancoldi/senec/index.html",
+		"/Users/tamancoldi/senec/app/atividades/atividades.component.ts",
+		"/Users/tamancoldi/senec/app/atividades/atividades.module.ts",
+		"/Users/tamancoldi/senec/app/atividades/atividades.component.js",
+		"/Users/tamancoldi/senec/app/atividades/atividades.component.html",
+		"/Users/tamancoldi/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade-card/atividade-card.component.js",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade.service.js",
+		"/Users/tamancoldi/senec/app/atividades/shared/in-memory-data.service.js",
+		"/Users/tamancoldi/senec/app/atividades/atividade-detail/atividade-detail.component.html",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade-toolbar/atividade-toolbar.component.html",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade-card/atividade-card.component.html",
+		"/Users/tamancoldi/senec/app/atividades/atividade-grid/atividade-grid.component.css",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade-toolbar/atividade-toolbar.component.css",
+		"/Users/tamancoldi/senec/app/atividades/atividade-grid/atividade-grid.component.js.map",
+		"/Users/tamancoldi/senec/assets/style/styles.css",
+		"/Users/tamancoldi/senec/app/atividades/atividade-grid/atividade-grid.component.js",
+		"/Users/tamancoldi/senec/app/atividades/atividade-detail/atividade-detail.component.js",
+		"/Users/tamancoldi/senec/app/atividades/atividade-detail/atividade-detail.component.ts",
+		"/Users/tamancoldi/senec/app/atividades/atividade-grid/atividade-grid.component.html",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade-card/atividade-card.component.css",
+		"/Users/tamancoldi/senec/app/atividades/atividade-grid/atividade-grid.component.scss",
+		"/Users/tamancoldi/senec/app/atividades/shared/atividade.model.js",
+		"/Users/tamancoldi/senec/app/core/core.module.js",
+		"/Users/tamancoldi/senec/app/core/sidenav/sidenav.component.js",
+		"/Users/tamancoldi/senec/app/atividades/atividades.module.js",
+		"/Users/tamancoldi/senec/app/not-found.component.js",
+		"/Users/tamancoldi/senec/app/app.component.spec.js",
+		"/Users/tamancoldi/senec/app/app.component.js",
+		"/Users/tamancoldi/senec/app/app-routing.module.js",
+		"/Users/tamancoldi/senec/app/main.js",
+		"/Users/tamancoldi/senec/app/app.module.js",
+		"/Users/tamancoldi/senec/systemjs.config.js",
+		"/Users/tamancoldi/Desktop/startbootstrap-landing-page-1.0.5/js/bootstrap.min.js",
+		"/Users/tamancoldi/Desktop/startbootstrap-landing-page-1.0.5/css/landing-page.css",
+		"/Users/tamancoldi/Desktop/startbootstrap-landing-page-1.0.5/css/bootstrap.css",
+		"/Users/tamancoldi/Desktop/startbootstrap-landing-page-1.0.5/js/bootstrap.js",
+		"/Users/tamancoldi/Desktop/startbootstrap-landing-page-1.0.5/index.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"palestras",
+			"sapiens",
+			"banner",
+			"banner-bg",
+			"services",
+			"twitter",
+			"fa-twitter",
+			"social",
+			"twitter",
+			"about"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"about",
+			"home"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "senec.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "senec.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

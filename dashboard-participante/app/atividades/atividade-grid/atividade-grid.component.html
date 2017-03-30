@@ -24,31 +24,17 @@
       #outros <span>({{getQtdOutros()}})</span>
     </div>
 
+    <div flex fxLayout="row" style="margin-right: 16px" class="outros" [class.selectedTipo]="selectedVisible=='Outros'" (click)="toggleVisibilityOutros()">
+      #outros <span>({{getQtdOutros()}})</span>
+    </div>
+
     <span fxFlex></span>
 
-    <button class="filter-button" md-raised-button [mdMenuTriggerFor]="menu">
-      <md-icon>filter_list</md-icon>
-      <span style="margin-left: 8px;"> {{selectedFilter}}
-      <span *ngIf="selectedFilter=='Todas'">({{getTotalAtividades()}})</span>
-      <span *ngIf="selectedFilter=='Confirmadas'">({{getQtdConfirmadas()}})</span>
-      <span *ngIf="selectedFilter=='Talvez'">({{getTotalAtividades() - getQtdConfirmadas()}})</span>
-      </span>
-    </button>
-
-    <md-menu #menu="mdMenu">
-      <button md-menu-item [class.selectedFilter]="selectedFilter=='Todas'" (click)="selectedFilter='Todas'">
-        <md-icon>select_all</md-icon>
-        <span>Todas ({{getTotalAtividades()}})</span>
-      </button>
-      <button md-menu-item [class.selectedFilter]="selectedFilter=='Confirmadas'" (click)="selectedFilter='Confirmadas'">
-        <md-icon>check</md-icon>
-          <span>Confirmadas ({{getQtdConfirmadas()}})</span>
-      </button>
-      <button md-menu-item [class.selectedFilter]="selectedFilter=='Talvez'" (click)="selectedFilter='Talvez'">
-        <md-icon>help_outline</md-icon>
-        <span>Talvez ({{getTotalAtividades() - getQtdConfirmadas()}})</span>
-      </button>
-    </md-menu>
+    <div flex fxLayout="row" style="margin-right: 16px" class="favoritas" [class.selectedTipo]="selectedVisible=='Favoritas'" (click)="toggleVisibilityFavoritas()">
+      <md-icon fxLayoutAlign="start center" style="color:red; margin-right: 4px;">favorite</md-icon>
+      Favoritas
+      <span style="margin-left: 4px;">({{getQtdFavoritas()}})</span>
+    </div>
 
 </div>
 

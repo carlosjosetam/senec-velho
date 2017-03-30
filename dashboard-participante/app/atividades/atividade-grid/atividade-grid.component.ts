@@ -92,12 +92,12 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   getQtdOutros(): number {
     return this.atividadesFiltradas.filter(a => a.tipo == "Outros").length;
   }
-  getQtdConfirmadas(): number {
-    return this.atividadesFiltradas.filter(a => {
-      if (!a.confirmed) return false;
-      if (this.selectedVisible != a.tipo && this.selectedVisible != 'none') return false;
-      return true;
-    }).length;
+  getQtdFavoritas(): number {
+    return 15;
+    //this.atividadesFiltradas.filter(a => {
+      //if (!a.favorita) return false;
+    //  return 15; //ainda preciso colocar o numero de favourites
+    //}).length;
   }
   getTotalAtividades(): number {
      return this.atividadesFiltradas.filter(a => {
@@ -121,6 +121,11 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
     if (this.selectedVisible != "Outros") this.selectedVisible = "Outros";
     else this.selectedVisible = "none";
   }
+  toggleVisibilityFavoritas(): void {
+    if (this.selectedVisible != "Favoritas") this.selectedVisible = "Favoritas";
+    else this.selectedVisible = "none";
+  }
+
   matchFilter(atividade: Atividade): boolean {
     if (this.selectedFilter == 'Todas') return true;
     if (this.selectedFilter == 'Confirmadas') {
