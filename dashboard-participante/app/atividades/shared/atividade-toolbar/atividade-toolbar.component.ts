@@ -14,6 +14,8 @@ import { SearchInputComponent } from '../../../shared/search-input/search-input.
 
 export class AtividadeToolbarComponent  {
 
+	public selectedFilter = "Semana";
+
 	constructor(private sidenavService: SidenavService, private mediaState: MediaStateService) {}
 
 	isSearchOpen = false;
@@ -34,5 +36,13 @@ export class AtividadeToolbarComponent  {
 	setIsSearchOpen(value: boolean) {
 		this.isSearchOpen = value;
 	}
+
+	toggleVisao(): void {
+		if (this.selectedFilter == 'Dia')
+			this.selectedFilter = 'Semana'
+		else
+			this.selectedFilter = 'Dia'
+	}
+  }
   
 }

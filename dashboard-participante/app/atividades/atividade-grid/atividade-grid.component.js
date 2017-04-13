@@ -137,7 +137,7 @@ var AtividadeGridComponent = (function () {
         if (this.selectedFilter == 'Semana')
             return true;
         if (this.selectedFilter == 'Dia') {
-            if (atividade.pontos == '500')
+            if (atividade.pontos == 500)
                 return true;
             return false;
         }

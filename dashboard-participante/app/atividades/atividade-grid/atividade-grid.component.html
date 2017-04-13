@@ -26,27 +26,10 @@
 
     <span fxFlex></span>
 
-    <button md-icon-button style="margin-right: 16px" class="favoritas" [class.selectedTipo]="selectedVisible=='Favoritas'" (click)="toggleVisibilityFavoritas()">
+    <button md-icon-button style="margin-right: 30px" class="favoritas" [class.selectedTipo]="selectedVisible=='Favoritas'" (click)="toggleVisibilityFavoritas()">
       <md-icon style="color:#B71C1C;">favorite</md-icon>
     
     </button>
-
-    <button class="filter-button" md-raised-button [mdMenuTriggerFor]="menu">
-      <md-icon *ngIf="selectedFilter == 'Semana'">view_week</md-icon>
-      <md-icon *ngIf="selectedFilter == 'Dia'">view_day</md-icon>
-      <span style="margin-left: 8px;"> {{selectedFilter}}</span>
-    </button>
-
-    <md-menu #menu="mdMenu">
-      <button md-menu-item [class.selectedFilter]="selectedFilter=='Semana'" (click)="selectedFilter='Semana'">
-        <md-icon>view_week</md-icon>
-        <span>Semana</span>
-      </button>
-      <button md-menu-item [class.selectedFilter]="selectedFilter=='Dia'" (click)="selectedFilter='Dia'">
-        <md-icon>view_day</md-icon>
-          <span>Dia</span>
-      </button>
-    </md-menu>
 
 </div>
 

@@ -5,6 +5,7 @@ import { AtividadeService } from '../shared/atividade.service';
 import { Subscription } from 'rxjs/Subscription';
 import { AtividadeCardComponent } from '../shared/atividade-card/atividade-card.component';
 import { SearchInputService } from '../../shared/search-input/search-input.service';
+import { AtividadeToolbarComponent } from '../shared/atividade-toolbar/atividade-toolbar.component';
 
 @Component({
   moduleId: module.id,
@@ -129,7 +130,7 @@ export class AtividadeGridComponent implements OnInit, OnDestroy {
   matchFilter(atividade: Atividade): boolean {
     if (this.selectedFilter == 'Semana') return true;
     if (this.selectedFilter == 'Dia') {
-      if (atividade.pontos == '500') return true;
+      if (atividade.pontos == 500) return true;
       return false;
     }
     if (this.selectedFilter == 'Talvez' && !atividade.confirmed) return true;

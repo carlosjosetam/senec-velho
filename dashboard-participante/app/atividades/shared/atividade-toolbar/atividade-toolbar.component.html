@@ -12,4 +12,13 @@
 
 	<search-input *ngIf="state == 'xs'" [placeholderText]="'pesquise um título'" (onToggleOpened)="setIsSearchOpen($event)" [color]="'primary'" [width]="'240px'"></search-input>
 
+
+	<button class="filter-button" md-button (click)=toggleVisao()>
+      <md-icon *ngIf="selectedFilter == 'Semana'">view_week</md-icon>
+      <md-icon *ngIf="selectedFilter == 'Dia'">view_day</md-icon>
+      <span style="margin-left: 8px;"> {{selectedFilter}}</span>
+    </button>
+
+
+
 </md-toolbar> 
