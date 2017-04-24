@@ -1,0 +1,31 @@
+.detail-card {
+  width: fill;
+
+}
+
+.header-image {
+	background-image: '/zuffo.jpg';
+	background-size: cover;
+}
+
+.card-title {
+	font-size: 18px !important;
+	margin-bottom: 10px;
+}
+
+.card-subtitle {
+	font-size: 14px !important;
+	padding-bottom: 4px;
+	justify-content: flex-start !important;
+}
+
+.card-body {
+	margin-top: 18px;
+	font-size: 16px;
+}
+
+.disabled {
+	pointer-events: none;
+	color: #000000;
+    opacity: 0.38;
+}

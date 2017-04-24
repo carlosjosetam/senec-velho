@@ -1,0 +1,123 @@
+<md-toolbar class="md-elevation-z4" color="primary" >
+
+  <button md-icon-button (click)="goBack()">
+    <md-icon>navigate_before</md-icon>
+  </button>
+
+  <span *ngIf="atividade" style="padding-left: 16px;">{{atividade.titulo}}</span>
+  <span fxFlex></span>
+
+</md-toolbar>
+
+<md-tab-group>
+  <md-tab label="SEG">
+
+  </md-tab>
+  <md-tab label="TER">
+
+  </md-tab>
+  <md-tab label="QUA">
+
+  </md-tab>
+  <md-tab label="QUI">
+
+  </md-tab>
+  <md-tab label="SEX">
+    
+  </md-tab>
+</md-tab-group>
+
+<div *ngIf="loading">
+    <md-progress-bar mode="indeterminate"></md-progress-bar>
+</div>
+
+
+<div *ngIf="atividade">
+  <md-card class="detail-card" [ngClass]="getCardColor()">
+    <md-card-header class="card-title" md-colors="::{backgroundColor: 'default-primary-700'}">
+      <md-card-title class="card-title"> {{atividade.titulo}}</md-card-title>
+
+      </md-card-header>
+
+      <div>
+      <md-card-subtitle class="card-subtitle"> {{atividade.tipo}} </md-card-subtitle>
+      </div>
+
+
+
+
+    <md-grid-list cols="9" rowHeight="50px" class="actions">
+    
+      <md-grid-tile rowspan="1" colspan="2">
+        <md-icon style="margin-right: 4px; color: grey;">alarm</md-icon>
+        <span style="font-size: 17px;">11h</span>
+      </md-grid-tile>
+
+      <md-grid-tile rowspan="1" colspan="2">
+        <md-icon style="margin-right: 4px; color: grey;">star</md-icon>
+        <span style="font-size: 17px;">{{atividade.pontos}}</span>
+      </md-grid-tile>
+
+      <md-grid-tile rowspan="1" colspan="1">
+      <button md-icon-button (click)="likeMe(atividade)">
+            <md-icon *ngIf="atividade.confirmed == '0'" style="color:grey;">favorite_border</md-icon>
+             <md-icon *ngIf="atividade.confirmed == '1'" style="color:#B71C1C;">favorite</md-icon>
+        </button>
+      </md-grid-tile>
+
+      <md-grid-tile rowspan="1" colspan="1"></md-grid-tile>
+
+      <md-grid-tile rowspan="1" colspan="3" *ngIf="atividade.confirmed == '0'">
+          <button md-button (click)="likeMe(atividade)">
+            <md-icon>expand_more</md-icon> VER MAIS
+          </button>
+      </md-grid-tile>
+
+      <md-grid-tile md-elevation-z4 rowspan="1" colspan="3" *ngIf="atividade.confirmed == '1'">
+          <button md-button (click)="likeMe(atividade)">
+            <md-icon>expand_less</md-icon> VER MENOS
+          </button>
+      </md-grid-tile>
+
+    </md-grid-list>
+
+    
+    <div class="card-body">
+      <md-card-content class="card-body">
+        <p *ngIf="atividade.confirmed == '0'" flex style="align-items: flex-start;" fxLayoutAlign="start">
+          Breve Descrição da atividade...
+        </p>
+        <p *ngIf="atividade.confirmed == '1'">
+          {{atividade.descricao}}
+        </p>
+
+      </md-card-content>
+    </div>
+    <md-card-actions *ngIf="atividade.confirmed == '1'" flex style="align-items: flex-start;" fxLayoutAlign="start">
+      <button md-button [class.disabled] = "atividade.confirmed == false">INSCREVER</button>
+
+      <span fxFlex></span>
+
+    </md-card-actions>
+  </md-card>
+</div>
+
+
+<!-- 
+    <!-- <md-grid-list cols="4" rowHeight="50px">
+      <md-grid-tile rowspan="1" colspan="3">
+        <md-card-title class="card-title"> {{atividade.titulo}}</md-card-title>
+      </md-grid-tile>
+      <md-grid-tile rowspan="1" colspan="1">
+        <md-icon>alarm</md-icon>11h
+      </md-grid-tile>
+      <md-grid-tile flex rowspan="1" colspan="3" style="justify-content: flex-start; align-items: flex-start;">
+        <md-card-subtitle class="card-subtitle"> {{atividade.tipo}}</md-card-subtitle>
+      </md-grid-tile>
+      <md-grid-tile rowspan="1" colspan="1">
+        <md-icon style="margin-left: 4px;">star</md-icon>{{atividade.pontos}}
+      </md-grid-tile>
+      <md-grid-tile>4</md-grid-tile>
+      <md-grid-tile>3</md-grid-tile>
+      <md-grid-tile>4</md-grid-tile>
+    </md-grid-list> -->

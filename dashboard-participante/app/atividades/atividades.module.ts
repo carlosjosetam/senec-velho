@@ -7,6 +7,7 @@ import { InMemoryDataService }  from './shared/in-memory-data.service';
 import { AtividadesComponent } from './atividades.component';
 import { AtividadeGridComponent} from './atividade-grid/atividade-grid.component';
 import { AtividadeDetailComponent } from './atividade-detail/atividade-detail.component';
+import { AtividadeDetailCardComponent } from './atividade-detail-card/atividade-detail-card.component';
 import { AtividadeToolbarComponent } from './shared/atividade-toolbar/atividade-toolbar.component';
 import { AtividadeCardComponent } from './shared/atividade-card/atividade-card.component';
 import { VisibilityConfirmationComponent } from './shared/confirmation-dialogs/visibility-confirmation.component';
@@ -24,7 +25,7 @@ import { AtividadeService } from './shared/atividade.service';
     ],
 
 	declarations: [ 
-		AtividadesComponent, AtividadeDetailComponent, AtividadeGridComponent, AtividadeToolbarComponent,
+		AtividadesComponent, AtividadeDetailComponent, AtividadeDetailCardComponent, AtividadeGridComponent, AtividadeToolbarComponent,
 		AtividadeCardComponent, VisibilityConfirmationComponent, LockConfirmationComponent
 	],
 	entryComponents: [VisibilityConfirmationComponent, LockConfirmationComponent],
