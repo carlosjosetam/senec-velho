@@ -40,8 +40,9 @@ export class AtividadeToolbarComponent  {
 	toggleVisao(): void {
 		if (this.selectedFilter == 'Dia')
 			this.selectedFilter = 'Semana'
-		else
+		else{
 			this.selectedFilter = 'Dia'
+		}
 	}
   }
   

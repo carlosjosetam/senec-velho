@@ -1,25 +1,31 @@
-<md-toolbar class="md-elevation-z4" color="primary" >
+<md-tab-group>
+  <md-tab label="SEG" (click)="setSEG()">
 
-	<button md-icon-button (click)="goBack()">
-		<md-icon>navigate_before</md-icon>
-	</button>
+  </md-tab >
+  <md-tab label="TER">
 
-	<span *ngIf="atividade" style="padding-left: 16px;">{{atividade.titulo}}</span>
-	<span fxFlex></span>
+  </md-tab>
+  <md-tab label="QUA">
 
-</md-toolbar> 
+  </md-tab>
+  <md-tab label="QUI">
+
+  </md-tab>
+  <md-tab label="SEX">
+    
+  </md-tab>
+</md-tab-group>
 
 <div *ngIf="loading">
     <md-progress-bar mode="indeterminate"></md-progress-bar>
 </div>
 
-<div *ngIf="atividade">
-  <h2>{{atividade.titulo}} details!</h2>
-  <div><label>id: </label>{{atividade.id}}</div>
-  <div>
-  	<label>atividade: </label>
-  	<input [(ngModel)]="atividade.titulo" placeholder="titulo"/>
-  	<button (click)="save()">Save</button>
-  </div>
-  <button (click)="goBack()">Back</button>
+<div class="atividades-day" *ngIf="atividades"  fxFlexFill fxLayout="column" >
+
+    <div *ngFor="let x of atividades" fxFlex>
+    <div>
+      <atividade-detail-card [atividade]="x">
+      </atividade-detail-card>
+    </div>
+</div>
 </div>

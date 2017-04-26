@@ -1,38 +1,9 @@
-<md-toolbar class="md-elevation-z4" color="primary" >
-
-  <button md-icon-button (click)="goBack()">
-    <md-icon>navigate_before</md-icon>
-  </button>
-
-  <span *ngIf="atividade" style="padding-left: 16px;">{{atividade.titulo}}</span>
-  <span fxFlex></span>
-
-</md-toolbar>
-
-<md-tab-group>
-  <md-tab label="SEG">
-
-  </md-tab>
-  <md-tab label="TER">
-
-  </md-tab>
-  <md-tab label="QUA">
-
-  </md-tab>
-  <md-tab label="QUI">
-
-  </md-tab>
-  <md-tab label="SEX">
-    
-  </md-tab>
-</md-tab-group>
-
 <div *ngIf="loading">
     <md-progress-bar mode="indeterminate"></md-progress-bar>
 </div>
 
 
-<div *ngIf="atividade">
+<div *ngIf="atividade" class="cards">
   <md-card class="detail-card" [ngClass]="getCardColor()">
     <md-card-header class="card-title" md-colors="::{backgroundColor: 'default-primary-700'}">
       <md-card-title class="card-title"> {{atividade.titulo}}</md-card-title>
@@ -50,7 +21,7 @@
     
       <md-grid-tile rowspan="1" colspan="2">
         <md-icon style="margin-right: 4px; color: grey;">alarm</md-icon>
-        <span style="font-size: 17px;">11h</span>
+        <span style="font-size: 17px;">{{atividade.inicioAtividade | date: 'shortTime'}}</span>
       </md-grid-tile>
 
       <md-grid-tile rowspan="1" colspan="2">
@@ -69,13 +40,13 @@
 
       <md-grid-tile rowspan="1" colspan="3" *ngIf="atividade.confirmed == '0'">
           <button md-button (click)="likeMe(atividade)">
-            <md-icon>expand_more</md-icon> VER MAIS
+            <md-icon>expand_more</md-icon> MAIS
           </button>
       </md-grid-tile>
 
       <md-grid-tile md-elevation-z4 rowspan="1" colspan="3" *ngIf="atividade.confirmed == '1'">
           <button md-button (click)="likeMe(atividade)">
-            <md-icon>expand_less</md-icon> VER MENOS
+            <md-icon>expand_less</md-icon> MENOS
           </button>
       </md-grid-tile>
 

@@ -15,7 +15,12 @@ import 'rxjs/add/operator/switchMap';
 	
 export class AtividadeDetailComponent implements OnInit {
 
-	loading: boolean = true;
+	private atividades: Atividade[];
+	private atividadesFiltradas: Atividade[]
+	private loading: boolean = false;
+	private selectedVisible = "none";
+	private selectedFilter = "SEG";
+	private searchSubscription: Subscription;
 
 	constructor(
 		private atividadeService: AtividadeService,
@@ -24,7 +29,31 @@ export class AtividadeDetailComponent implements OnInit {
 	) {}
 
 
+	getAtividades(): void {
+    this.atividadeService.getAtividades().then(atividades => {
+      this.atividades = atividades.sort(this.compare);
+      this.loading = false;
+      this.atividadesFiltradas = this.atividades.slice();
+      this.searchSubscription = this.searchTerm.searchTerm$.subscribe(value => {
+        this.atividadesFiltradas = this.atividades.filter(a => {
+          let valueLower = value.toLowerCase();
+          let titulo = a.titulo.toLowerCase();
+          if (titulo.indexOf(valueLower) != -1) {
+            return true;
+          }
+        });
+      })
+    });
+  }
+
+
+	setSEG(): void {
+		
+	}
+
 	ngOnInit(): void {
+
+		this.getAtividades();
 
 		this.route.params
 			.switchMap((params: Params) => this.atividadeService.getAtividade(+params['id']))

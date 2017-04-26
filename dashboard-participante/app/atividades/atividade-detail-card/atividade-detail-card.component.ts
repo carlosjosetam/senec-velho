@@ -21,12 +21,6 @@ import 'rxjs/add/operator/switchMap';
 	
 export class AtividadeDetailCardComponent implements OnInit {
 
-	tiles = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-  ];
 
 	loading: boolean = true;
 
@@ -38,13 +32,7 @@ export class AtividadeDetailCardComponent implements OnInit {
 
 
 	ngOnInit(): void {
-
-		this.route.params
-			.switchMap((params: Params) => this.atividadeService.getAtividade(+params['id']))
-			.subscribe(atividade => {
-				this.atividade = atividade;
-				this.loading = false;
-			});
+		this.loading = false;
 	}
 
 	getCardColor(): string {

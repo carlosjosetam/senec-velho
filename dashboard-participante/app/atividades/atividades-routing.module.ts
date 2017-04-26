@@ -9,7 +9,8 @@ import { AtividadeDetailCardComponent } from './atividade-detail-card/atividade-
 @NgModule({
   imports: [RouterModule.forChild([
     { path: 'atividades', component: AtividadesComponent },
-    { path: 'atividades/:id', component: AtividadeDetailCardComponent }
+    { path: 'atividades/:id', component: AtividadeDetailCardComponent },
+    { path: 'atividades-day', component: AtividadeDetailComponent }
   ])],
   exports: [RouterModule]
 })
