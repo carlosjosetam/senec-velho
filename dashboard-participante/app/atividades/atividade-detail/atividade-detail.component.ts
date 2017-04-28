@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs/Subscription';
+import { SearchInputService } from '../../shared/search-input/search-input.service';
+
+
 
 import { AtividadeService } from '../shared/atividade.service';
 import { Atividade } from '../shared/atividade.model';
@@ -34,15 +38,7 @@ export class AtividadeDetailComponent implements OnInit {
       this.atividades = atividades.sort(this.compare);
       this.loading = false;
       this.atividadesFiltradas = this.atividades.slice();
-      this.searchSubscription = this.searchTerm.searchTerm$.subscribe(value => {
-        this.atividadesFiltradas = this.atividades.filter(a => {
-          let valueLower = value.toLowerCase();
-          let titulo = a.titulo.toLowerCase();
-          if (titulo.indexOf(valueLower) != -1) {
-            return true;
-          }
-        });
-      })
+      
     });
   }
 
@@ -50,6 +46,12 @@ export class AtividadeDetailComponent implements OnInit {
 	setSEG(): void {
 		
 	}
+
+	compare(a: Atividade,b: Atividade) {
+    if (a.inicioAtividade < b.inicioAtividade) return -1;
+    if (a.inicioAtividade > b.inicioAtividade) return 1;
+    return 0;
+  } 
 
 	ngOnInit(): void {
 
